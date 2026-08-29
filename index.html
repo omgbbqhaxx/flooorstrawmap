@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://omgbbqhaxx.github.io/flooorstrawmap/og-card.png">
 
   <!-- Favicon (SVG) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Crect x='10' y='150' width='140' height='14' fill='black'/%3E%3Crect x='26' y='112' width='108' height='14' fill='black' opacity='0.72'/%3E%3Crect x='42' y='74' width='76' height='14' fill='black' opacity='0.48'/%3E%3Crect x='58' y='36' width='44' height='14' fill='black' opacity='0.26'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Crect x='10' y='150' width='140' height='14' fill='%231a1a1a'/%3E%3Crect x='26' y='112' width='108' height='14' fill='%23c08a2e'/%3E%3Crect x='42' y='74' width='76' height='14' fill='%233d8c52'/%3E%3Crect x='58' y='36' width='44' height='14' fill='%232f6fb0'/%3E%3C/svg%3E">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://omgbbqhaxx.github.io/flooorstrawmap/">
@@ -92,112 +92,171 @@
       transform-origin: 0 0;
     }
 
+    /* ── Layer palettes ── */
+    :root {
+      --a-band:  #eaf2fb;  --a-line: #b7d1ec;  --a-ink: #1f4e79;  --a-chip: #2f6fb0;
+      --v-band:  #e9f4ea;  --v-line: #bcdcc0;  --v-ink: #2c6b3d;  --v-chip: #3d8c52;
+      --s-band:  #fdf0da;  --s-line: #efd7a6;  --s-ink: #8a5a12;  --s-chip: #c08a2e;
+    }
+
     /* ── Grid ── */
     .grid {
       display: grid;
-      grid-template-columns: 92px repeat(5, 232px) 268px;
-      gap: 10px;
+      grid-template-columns: 104px repeat(5, 236px) 276px;
+      column-gap: 12px;
+      row-gap: 14px;
       align-items: stretch;
     }
 
+    .corner { border: 0; }
+
     .col-head {
-      padding: 0.5rem 0.6rem;
-      border-bottom: 2px solid var(--fg);
+      padding: 0.45rem 0.7rem 0.5rem;
+      background: #fff;
+      border: 1px solid var(--hairline);
+      border-bottom: 3px solid var(--fg);
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
-    .col-head .name {
-      font-size: 0.9375rem;
-      letter-spacing: -0.01em;
-    }
+    .col-head .name { font-size: 1rem; letter-spacing: -0.01em; }
     .col-head .date {
       font-size: 0.625rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--fg-dim);
     }
-    .col-head.is-next { border-bottom-color: var(--gold); }
-    .col-head.is-next .name { color: var(--gold); }
-    .col-head.is-past { border-bottom-color: var(--hairline); }
-    .col-head.is-past .name { color: var(--faint); }
+    .col-head.is-next {
+      background: var(--fg);
+      border-color: var(--fg);
+      border-bottom-color: var(--gold);
+    }
+    .col-head.is-next .name { color: #fff; }
+    .col-head.is-next .date { color: var(--gold); }
+    .col-head.is-past {
+      background: transparent;
+      border-style: dashed;
+      border-bottom: 3px solid var(--hairline);
+    }
+    .col-head.is-past .name, .col-head.is-past .date { color: var(--faint); }
+    .col-head.is-ns { background: #000; border-color: #000; border-bottom-color: #000; }
+    .col-head.is-ns .name { color: #fff; }
+    .col-head.is-ns .date { color: rgba(255, 255, 255, 0.55); }
 
+    /* ── Row labels ── */
     .row-label {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 4px;
-      padding-right: 0.5rem;
-      border-right: 1px solid var(--hairline);
+      align-items: center;
+      gap: 6px;
+      padding: 0.75rem 0.25rem;
+      color: #fff;
+      text-align: center;
     }
-    .row-label .letter {
-      font-size: 1.75rem;
-      line-height: 1;
-      color: var(--fg);
-    }
+    .row-label .letter { font-size: 2rem; line-height: 1; }
     .row-label .what {
       font-size: 0.625rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--fg-dim);
+      color: rgba(255, 255, 255, 0.8);
     }
+    .row-label--a { background: var(--a-chip); }
+    .row-label--v { background: var(--v-chip); }
+    .row-label--s { background: var(--s-chip); }
 
+    /* ── Cells ── */
     .cell {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      padding: 4px 0;
+      gap: 8px;
+      padding: 10px;
+      position: relative;
     }
+    .cell--a { background: var(--a-band); }
+    .cell--v { background: var(--v-band); }
+    .cell--s { background: var(--s-band); }
 
     /* ── Boxes ── */
     .box {
-      border: 1px solid var(--hairline);
+      position: relative;
       background: #fff;
       padding: 0.5rem 0.6rem;
       font-size: 0.75rem;
       line-height: 1.45;
+      border: 1px solid var(--hairline);
+      border-left: 4px solid var(--hairline);
     }
-    .box .t { display: block; }
-    .box .n {
-      display: block;
-      margin-top: 3px;
-      font-size: 0.6875rem;
-      color: var(--fg-dim);
+    .cell--a .box { border-color: var(--a-line); border-left-color: var(--a-chip); }
+    .cell--v .box { border-color: var(--v-line); border-left-color: var(--v-chip); }
+    .cell--s .box { border-color: var(--s-line); border-left-color: var(--s-chip); }
+
+    .box .t { display: block; font-weight: 500; }
+    .box .n { display: block; margin-top: 3px; font-size: 0.6875rem; color: var(--fg-dim); }
+    .box .tag {
+      display: inline-block;
+      margin-bottom: 4px;
+      font-size: 0.5625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
     }
-    .box--headliner {
-      background: #2a2724;
-      border-color: #2a2724;
-      color: #f7f5f1;
+
+    /* headliners — saturated layer color */
+    .box--head { color: #fff; border-width: 1px; border-left-width: 4px; }
+    .cell--a .box--head { background: var(--a-ink); border-color: var(--a-ink); border-left-color: #0f2f4d; }
+    .cell--v .box--head { background: var(--v-ink); border-color: var(--v-ink); border-left-color: #15381f; }
+    .cell--s .box--head { background: var(--s-ink); border-color: var(--s-ink); border-left-color: #56370a; }
+    .box--head .n { color: rgba(255, 255, 255, 0.72); }
+    .box--head .tag { color: var(--gold); }
+
+    /* offchain — dashed, no fill */
+    .box--off { background: transparent; border-style: dashed; border-left-style: dashed; }
+    .box--off .t { font-weight: 400; }
+    .box--off .tag { color: var(--fg-dim); }
+
+    /* shipped — faded */
+    .box--shipped { background: rgba(255, 255, 255, 0.45); color: var(--fg-dim); }
+    .box--shipped .t { font-weight: 400; }
+
+    /* dependency arrow into the previous column */
+    .box--dep::before {
+      content: '';
+      position: absolute;
+      left: -21px;
+      top: 1.05rem;
+      width: 17px;
+      height: 1px;
+      background: var(--fg-dim);
     }
-    .box--headliner .n { color: rgba(247, 245, 241, 0.68); }
-    .box--offchain {
-      background: transparent;
-      border-style: dashed;
-      color: var(--fg-dim);
+    .box--dep::after {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 0.8rem;
+      border: 4px solid transparent;
+      border-left-color: var(--fg-dim);
     }
-    .box--shipped {
-      background: transparent;
-      border-color: var(--hairline);
-      color: var(--faint);
-    }
-    .box--shipped .n { color: var(--faint); }
-    .box a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
     /* ── North stars ── */
     .northstars {
       grid-column: 7;
       grid-row: 2 / span 3;
-      border-left: 1px solid var(--hairline);
-      padding-left: 12px;
+      background: #111;
+      padding: 12px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       justify-content: space-between;
     }
     .ns {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       background: #000;
-      color: #f7f5f1;
-      padding: 0.6rem 0.7rem;
+      color: #fff;
+      border-left: 4px solid var(--gold);
+      padding: 0.55rem 0.7rem;
       font-size: 0.8125rem;
       line-height: 1.4;
     }
@@ -205,12 +264,12 @@
       display: block;
       margin-top: 3px;
       font-size: 0.6875rem;
-      color: rgba(247, 245, 241, 0.66);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     /* ── Legend ── */
     .legend {
-      margin-top: 1.75rem;
+      margin-top: 1.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 1.25rem;
@@ -220,13 +279,19 @@
       border-top: 1px solid var(--hairline);
       padding-top: 0.75rem;
       padding-right: 7rem;
-      max-width: 1580px;
+      max-width: 1620px;
     }
     .legend .key { display: inline-flex; align-items: center; gap: 0.45rem; }
-    .swatch { width: 22px; height: 12px; border: 1px solid var(--hairline); background: #fff; }
-    .swatch--headliner { background: #2a2724; border-color: #2a2724; }
-    .swatch--offchain { background: transparent; border-style: dashed; }
-    .swatch--ns { background: #000; border-color: #000; }
+    .swatch {
+      width: 22px; height: 12px;
+      border: 1px solid var(--a-line);
+      border-left: 3px solid var(--a-chip);
+      background: #fff;
+    }
+    .swatch--head { background: var(--a-ink); border-color: var(--a-ink); border-left-color: #0f2f4d; }
+    .swatch--off { background: transparent; border-style: dashed; }
+    .swatch--ns { background: #000; border-color: #000; border-left-color: var(--gold); }
+    .swatch--arrow { border: 0; background: transparent; width: 22px; text-align: center; }
     .legend .rev { margin-left: auto; color: var(--faint); }
 
     /* ── Zoom ── */
@@ -358,10 +423,10 @@
       <div class="grid">
 
         <!-- ── Column heads ── -->
-        <div></div>
+        <div class="corner"></div>
         <div class="col-head is-past">
           <div class="name">v3</div>
-          <div class="date">shipped · live today</div>
+          <div class="date">shipped &middot; live today</div>
         </div>
         <div class="col-head is-next">
           <div class="name">Cobalt</div>
@@ -379,42 +444,42 @@
           <div class="name">F&#42;</div>
           <div class="date">2028</div>
         </div>
-        <div class="col-head">
+        <div class="col-head is-ns">
           <div class="name">north stars</div>
           <div class="date">no date</div>
         </div>
 
         <!-- ── A — auction layer ── -->
-        <div class="row-label">
+        <div class="row-label row-label--a">
           <div class="letter">A</div>
           <div class="what">auction</div>
         </div>
-        <div class="cell">
+        <div class="cell cell--a">
           <div class="box box--shipped"><span class="t">continuous daily auction</span><span class="n">one epoch per day, highest bid wins</span></div>
           <div class="box box--shipped"><span class="t">sellToHighest settlement</span><span class="n">99.5% to holder, 0.5% protocol</span></div>
           <div class="box box--shipped"><span class="t">min-bid floor</span><span class="n">next bid computed onchain</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">parallel epochs</span><span class="n">headliner — every listed collection runs its own auction clock</span></div>
+        <div class="cell cell--a">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">parallel epochs</span><span class="n">every listed collection runs its own auction clock</span></div>
           <div class="box"><span class="t">guarded sign &amp; claim</span><span class="n">pre-flight simulation, decoded reverts</span></div>
           <div class="box"><span class="t">anti-snipe extension</span><span class="n">late bid pushes settlement by a few minutes</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">permissionless listing</span><span class="n">headliner — any Base collection opens its own flooor</span></div>
+        <div class="cell cell--a">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">permissionless listing</span><span class="n">any Base collection opens its own flooor</span></div>
           <div class="box"><span class="t">bid escrow &amp; auto-refund</span><span class="n">outbid funds return in the same tx</span></div>
-          <div class="box box--offchain"><span class="t">listing review queue</span><span class="n">offchain — spam and copymint filtering</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">listing review queue</span><span class="n">spam and copymint filtering</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">basket auctions</span><span class="n">headliner — bid on a set, settle as one lot</span></div>
+        <div class="cell cell--a">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">basket auctions</span><span class="n">bid on a set, settle as one lot</span></div>
           <div class="box"><span class="t">flooor index</span><span class="n">cross-collection floor print, published onchain</span></div>
           <div class="box"><span class="t">bid delegation</span><span class="n">bid on behalf of a vault or a DAO</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">multi-chain flooor</span><span class="n">headliner — same auction contract beyond Base</span></div>
+        <div class="cell cell--a">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">multi-chain flooor</span><span class="n">same auction contract beyond Base</span></div>
           <div class="box"><span class="t">shared settlement</span><span class="n">one epoch clock across deployments</span></div>
         </div>
 
-        <!-- north stars block (spans the three layer rows) -->
+        <!-- north stars, spanning the three layer rows -->
         <div class="northstars">
           <div class="ns">everyday floor<small>every collection gets a real, honest price every single day</small></div>
           <div class="ns">zero-click yield<small>sign and claim with no wallet popup, no staking, no lockup</small></div>
@@ -424,71 +489,72 @@
         </div>
 
         <!-- ── V — vault layer ── -->
-        <div class="row-label">
+        <div class="row-label row-label--v">
           <div class="letter">V</div>
           <div class="what">vault</div>
         </div>
-        <div class="cell">
+        <div class="cell cell--v">
           <div class="box box--shipped"><span class="t">5% royalty vault</span><span class="n">every sale tops up the daily pool</span></div>
           <div class="box box--shipped"><span class="t">16h sign / 8h claim</span><span class="n">even split among signers</span></div>
           <div class="box box--shipped"><span class="t">total value signed (TVS)</span><span class="n">live participation metric</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">weighted split</span><span class="n">headliner — share scales with signed value, not headcount</span></div>
+        <div class="cell cell--v">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">weighted split</span><span class="n">share scales with signed value, not headcount</span></div>
           <div class="box"><span class="t">claim-all</span><span class="n">every collection, one transaction</span></div>
-          <div class="box"><span class="t">unclaimed rollover</span><span class="n">leftovers roll into the next epoch instead of stalling</span></div>
+          <div class="box"><span class="t">unclaimed rollover</span><span class="n">leftovers roll into the next epoch</span></div>
         </div>
-        <div class="cell">
-          <div class="box"><span class="t">streaming accrual</span><span class="n">vault grows per block, not per epoch close</span></div>
+        <div class="cell cell--v">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">streaming accrual</span><span class="n">vault grows per block, not per epoch close</span></div>
           <div class="box"><span class="t">auto-compound</span><span class="n">claim straight back into a bid</span></div>
-          <div class="box box--offchain"><span class="t">vault analytics</span><span class="n">offchain — yield history per collection</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">vault analytics</span><span class="n">yield history per collection</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">loyalty multiplier</span><span class="n">headliner — uninterrupted sign streaks earn a larger share</span></div>
+        <div class="cell cell--v">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">loyalty multiplier</span><span class="n">uninterrupted sign streaks earn a larger share</span></div>
           <div class="box"><span class="t">split routing</span><span class="n">creators, holders and treasury set per collection</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">vault governance</span><span class="n">headliner — holders vote the royalty split of their own collection</span></div>
+        <div class="cell cell--v">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">vault governance</span><span class="n">holders vote the royalty split of their collection</span></div>
           <div class="box"><span class="t">protocol fee switch</span><span class="n">0.5% redirected by holder vote</span></div>
         </div>
 
         <!-- ── S — surface layer ── -->
-        <div class="row-label">
+        <div class="row-label row-label--s">
           <div class="letter">S</div>
           <div class="what">surface</div>
         </div>
-        <div class="cell">
+        <div class="cell cell--s">
           <div class="box box--shipped"><span class="t">flooor.fun app</span><span class="n">eight collection pages, live auction state</span></div>
           <div class="box box--shipped"><span class="t">Base Account connect</span><span class="n">bid, sign, claim from the browser</span></div>
-          <div class="box box--offchain"><span class="t">MCP plugin (beta)</span><span class="n">offchain — auction reads and writes from an agent</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">MCP plugin (beta)</span><span class="n">auction reads and writes from an agent</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">agent wallets</span><span class="n">headliner — scoped spend permission signs every epoch for you</span></div>
-          <div class="box box--offchain"><span class="t">MCP plugin GA</span><span class="n">offchain — the flooor plugin ships stable</span></div>
-          <div class="box box--offchain"><span class="t">sign-phase alerts</span><span class="n">offchain — push before the window closes</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">agent wallets</span><span class="n">scoped spend permission signs every epoch for you</span></div>
+          <div class="box box--off box--dep"><span class="tag">offchain</span><span class="t">MCP plugin GA</span><span class="n">the flooor plugin ships stable</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">sign-phase alerts</span><span class="n">push before the window closes</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">mini app</span><span class="n">headliner — full flooor inside a feed, no site visit</span></div>
-          <div class="box box--offchain"><span class="t">embeddable widget</span><span class="n">offchain — live floor and bid button on any site</span></div>
-          <div class="box box--offchain"><span class="t">creator dashboard</span><span class="n">offchain — open and run your own flooor</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">mini app</span><span class="n">full flooor inside a feed, no site visit</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">embeddable widget</span><span class="n">live floor and bid button on any site</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">creator dashboard</span><span class="n">open and run your own flooor</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--offchain"><span class="t">public API &amp; indexer</span><span class="n">offchain — epochs, bids and vaults, queryable</span></div>
-          <div class="box box--offchain"><span class="t">third-party frontends</span><span class="n">offchain — flooor without flooor.fun</span></div>
+        <div class="cell cell--s">
+          <div class="box"><span class="t">public API &amp; indexer</span><span class="n">epochs, bids and vaults, queryable</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">third-party frontends</span><span class="n">flooor without flooor.fun</span></div>
         </div>
-        <div class="cell">
-          <div class="box box--headliner"><span class="t">flooor SDK</span><span class="n">headliner — drop a working auction into any app</span></div>
-          <div class="box box--offchain"><span class="t">agent marketplace</span><span class="n">offchain — bots bid, sign and claim end to end</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">flooor SDK</span><span class="n">drop a working auction into any app</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">agent marketplace</span><span class="n">bots bid, sign and claim end to end</span></div>
         </div>
 
       </div>
 
       <!-- Legend -->
       <div class="legend">
-        <span class="key"><span class="swatch swatch--headliner"></span> headliner — one per layer, per release</span>
+        <span class="key"><span class="swatch swatch--head"></span> headliner — one per layer, per release</span>
         <span class="key"><span class="swatch"></span> onchain upgrade</span>
-        <span class="key"><span class="swatch swatch--offchain"></span> offchain work</span>
+        <span class="key"><span class="swatch swatch--off"></span> offchain work</span>
         <span class="key"><span class="swatch swatch--ns"></span> north star</span>
+        <span class="key"><span class="swatch swatch--arrow">→</span> builds on the box to its left</span>
         <span class="rev">draft · rev. 2026-08-29 · dates are intent, not promises</span>
       </div>
     </div>
