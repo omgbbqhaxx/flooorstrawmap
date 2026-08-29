@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>flooor strawmap — draft protocol roadmap</title>
-  <meta name="description" content="A work-in-progress draft roadmap for the flooor protocol on Base. Stage 1 is Cobalt in September 2026; the stages after it unlock at $5M, $10M, $100M and $1B+ market cap. Covering the auction, vault and surface layers.">
+  <meta name="description" content="A work-in-progress draft roadmap for the flooor protocol on Base. Stage 1 is Cobalt in September 2026; the stages after it unlock at $5M, $10M, $100M, $1B+ and $1T+ market cap. Covering the auction, vault and surface layers.">
   <meta name="keywords" content="flooor, flooor.fun, roadmap, strawmap, NFT auction, Base, royalties, sign and claim, vault, market cap milestones, protocol roadmap">
   <meta name="author" content="flooor">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="flooor strawmap — draft protocol roadmap">
-  <meta property="og:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then $5M, $10M, $100M and $1B+ market cap.">
+  <meta property="og:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then $5M, $10M, $100M, $1B+ and $1T+ market cap.">
   <meta property="og:url" content="https://omgbbqhaxx.github.io/flooorstrawmap/">
   <meta property="og:site_name" content="flooor strawmap">
   <meta property="og:image" content="https://omgbbqhaxx.github.io/flooorstrawmap/og-card.png">
@@ -21,7 +21,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="flooor strawmap — draft protocol roadmap">
-  <meta name="twitter:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then $5M, $10M, $100M and $1B+ market cap.">
+  <meta name="twitter:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then $5M, $10M, $100M, $1B+ and $1T+ market cap.">
   <meta name="twitter:image" content="https://omgbbqhaxx.github.io/flooorstrawmap/og-card.png">
 
   <!-- Favicon (SVG) -->
@@ -102,7 +102,7 @@
     /* ── Grid ── */
     .grid {
       display: grid;
-      grid-template-columns: 104px repeat(5, 240px) 268px 268px;
+      grid-template-columns: 104px repeat(6, 232px) 264px 264px;
       column-gap: 12px;
       row-gap: 14px;
       align-items: stretch;
@@ -232,7 +232,7 @@
 
     /* ── North stars ── */
     .northstars {
-      grid-column: 7;
+      grid-column: 8;
       grid-row: 2 / span 3;
       background: #111;
       padding: 12px;
@@ -278,7 +278,7 @@
     .col-head.is-tasks .date { color: rgba(255, 255, 255, 0.5); }
 
     .tasks {
-      grid-column: 8;
+      grid-column: 9;
       grid-row: 2 / span 3;
       background: #1a1a1a;
       padding: 12px;
@@ -525,7 +525,7 @@
     <div class="header-meta">
       <div>
         <div class="label">stage 1 — Cobalt, September 2026</div>
-        <div>then $5M · $10M · $100M · $1B+ market cap · <a href="https://vrnouns.gitbook.io/flooor" target="_blank">docs</a></div>
+        <div>then $5M · $10M · $100M · $1B+ · $1T+ market cap · <a href="https://vrnouns.gitbook.io/flooor" target="_blank">docs</a></div>
       </div>
     </div>
     <div style="flex-shrink:0">
@@ -609,6 +609,10 @@
           <div class="name">$1B+</div>
           <div class="date">unlocks at market cap</div>
         </div>
+        <div class="col-head is-cap">
+          <div class="name">$1T+</div>
+          <div class="date">unlocks at market cap</div>
+        </div>
         <div class="col-head is-ns">
           <div class="name">north stars</div>
           <div class="date">no date &middot; in order</div>
@@ -646,6 +650,11 @@
           <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">the reference floor</span><span class="n">the daily print is the number lenders, indices and marketplaces quote</span></div>
           <div class="box"><span class="t">floor oracle</span><span class="n">a signed price feed any contract can read</span></div>
           <div class="box"><span class="t">collection treasuries</span><span class="n">a collection runs its own flooor as its treasury</span></div>
+        </div>
+        <div class="cell cell--l">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">quantum-safe settlement</span><span class="n">the auction settles under hash-based signatures — a listing outlives the cryptography it was born with</span></div>
+          <div class="box"><span class="t">sealed bids</span><span class="n">bids committed under a post-quantum hash, revealed at settlement</span></div>
+          <div class="box"><span class="t">eternal listings</span><span class="n">a collection's floor survives a signature-scheme migration untouched</span></div>
         </div>
 
         <!-- north stars, spanning the three layer rows -->
@@ -721,6 +730,11 @@
           <div class="box"><span class="t">sponsor market</span><span class="n">a booked day can be resold before it arrives</span></div>
           <div class="box box--off"><span class="tag">offchain</span><span class="t">sponsor desk</span><span class="n">brands and treasuries booking whole seasons</span></div>
         </div>
+        <div class="cell cell--v">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">quantum-safe vault</span><span class="n">no ECDSA anywhere in the sign and claim path — a century of royalties, not a decade</span></div>
+          <div class="box"><span class="t">migration escrow</span><span class="n">the vault keeps paying while holders rotate to post-quantum keys</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">rotation drive</span><span class="n">walking every signer through the key change before it is urgent</span></div>
+        </div>
 
         <!-- ── S — surface layer ── -->
         <div class="row-label row-label--s">
@@ -749,6 +763,12 @@
           <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">wallet-native flooor</span><span class="n">bid, sign and claim without leaving the wallet you already use</span></div>
           <div class="box"><span class="t">one-tap sponsor</span><span class="n">fund a day from anywhere the button is embedded</span></div>
           <div class="box box--off"><span class="tag">offchain</span><span class="t">open data commons</span><span class="n">every floor print, free, for anyone to build on</span></div>
+        </div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">post-quantum smart accounts</span><span class="n">bid, sign and claim from an account whose keys are already quantum-safe</span></div>
+          <div class="box"><span class="t">PQ agent wallets</span><span class="n">the spend permission that signs for you, under the new scheme</span></div>
+          <div class="box"><span class="t">rocket cargo</span><span class="n">a physical lot won at auction, off the pad and anywhere on Earth inside an hour</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">crypto review</span><span class="n">the whole stack re-audited against a quantum adversary</span></div>
         </div>
 
       </div>
@@ -819,7 +839,7 @@
       <dd>
         <p>Stages, not dates. Cobalt is stage 1 and the only column with a calendar date on it, because it is
         already being built. What is live today isn't on the map — the map is what comes next.</p>
-        <p>Everything after Cobalt is gated on protocol market cap rather than a quarter: the $5M, $10M, $100M and $1B+
+        <p>Everything after Cobalt is gated on protocol market cap rather than a quarter: the $5M, $10M, $100M, $1B+ and $1T+
         columns unlock when flooor reaches that market cap. Each one is a bigger surface to pay for and a bigger
         vault to defend, so the scope inside it is sized to what the protocol can carry at that point.</p>
       </dd>
@@ -846,6 +866,18 @@
         the day showing who funded it and for how much. The board above the map is that schedule.</p>
         <p>The numbers on the board today are sample data. No sponsor has signed up yet, and the slots are there to
         show the shape of the thing.</p>
+      </dd>
+
+      <dt>Why is the last column about quantum?</dt>
+      <dd>
+        <p>A floor meant to outlive the collection has to outlive its cryptography too. At $1T+ the vault is
+        holding a century of royalties rather than a season's, so the sign-and-claim path moves to hash-based
+        signatures, bids are sealed under a post-quantum hash, and accounts rotate to keys that survive the machine
+        that breaks ECDSA. The escrow and the rotation drive are there so the vault keeps paying during the change,
+        not after it.</p>
+        <p>The rocket cargo box in the same column is the other half of that scale: a physical lot won at auction,
+        off the pad and anywhere on Earth inside an hour. Both are deliberately far out — that is what the last
+        column is for.</p>
       </dd>
 
       <dt>What are the north stars?</dt>
@@ -918,7 +950,7 @@
   <footer class="site-footer">
     <div>
       <div class="label">stage 1 — Cobalt, September 2026</div>
-      <div>then $5M · $10M · $100M · $1B+ market cap</div>
+      <div>then $5M · $10M · $100M · $1B+ · $1T+ market cap</div>
     </div>
     <button class="toggle-btn" id="toggleBtnFooter">+ info</button>
   </footer>

@@ -2,7 +2,7 @@
 
 A work-in-progress draft roadmap for the [flooor](https://flooor.fun) protocol on Base.
 
-**Stage 1 — Cobalt, September 2026.** Every stage after it unlocks at a protocol market cap — $5M, $10M, $100M, $1B+ — rather than on a date.
+**Stage 1 — Cobalt, September 2026.** Every stage after it unlocks at a protocol market cap — $5M, $10M, $100M, $1B+, $1T+ — rather than on a date.
 
 ## Live site
 
