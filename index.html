@@ -138,6 +138,17 @@
     .col-head.is-ns .name { color: #fff; }
     .col-head.is-ns .date { color: rgba(255, 255, 255, 0.55); }
 
+    /* ── Month band ── */
+    .month-head {
+      padding: 0.35rem 0.7rem;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fg-dim);
+      align-self: end;
+    }
+
     /* ── Row labels ── */
     .row-label {
       display: flex;
@@ -228,7 +239,7 @@
     /* ── North stars ── */
     .northstars {
       grid-column: 8;
-      grid-row: 2 / span 2;
+      grid-row: 2 / span 3;
       background: #111;
       padding: 12px;
       display: flex;
@@ -274,7 +285,7 @@
 
     .tasks {
       grid-column: 9;
-      grid-row: 2 / span 2;
+      grid-row: 2 / span 3;
       background: #1a1a1a;
       padding: 12px;
       display: flex;
@@ -617,39 +628,39 @@
           <div class="date">open to anyone &middot; any time</div>
         </div>
 
-        <!-- ── L — listings layer ── -->
-        <div class="row-label row-label--l">
-          <div class="letter">L</div>
-          <div class="what">listings</div>
+        <!-- ── S — surface layer ── -->
+        <div class="row-label row-label--s">
+          <div class="letter">S</div>
+          <div class="what">surface</div>
         </div>
-        <div class="cell cell--l">
-          <div class="box box--head"><span class="tag">headliner</span><span class="t">parallel epochs</span><span class="n">every listed collection runs its own auction clock</span></div>
-          <div class="box"><span class="t">guarded sign &amp; claim</span><span class="n">pre-flight simulation, decoded reverts</span></div>
-          <div class="box"><span class="t">anti-snipe extension</span><span class="n">late bid pushes settlement by a few minutes</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head"><span class="tag">headliner</span><span class="t">agent wallets</span><span class="n">scoped spend permission signs every epoch for you</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">MCP plugin GA</span><span class="n">the flooor plugin ships stable</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">sign-phase alerts</span><span class="n">push before the window closes</span></div>
         </div>
-        <div class="cell cell--l">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">permissionless listing</span><span class="n">any Base collection opens its own flooor</span></div>
-          <div class="box"><span class="t">bid escrow &amp; auto-refund</span><span class="n">outbid funds return in the same tx</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">listing review queue</span><span class="n">spam and copymint filtering</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">mini app</span><span class="n">full flooor inside a feed, no site visit</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">embeddable widget</span><span class="n">live floor and bid button on any site</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">creator dashboard</span><span class="n">open and run your own flooor</span></div>
         </div>
-        <div class="cell cell--l">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">basket auctions</span><span class="n">bid on a set, settle as one lot</span></div>
-          <div class="box"><span class="t">flooor index</span><span class="n">cross-collection floor print, published onchain</span></div>
-          <div class="box"><span class="t">bid delegation</span><span class="n">bid on behalf of a vault or a DAO</span></div>
+        <div class="cell cell--s">
+          <div class="box"><span class="t">public API &amp; indexer</span><span class="n">epochs, bids and vaults, queryable</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">third-party frontends</span><span class="n">flooor without flooor.fun</span></div>
         </div>
-        <div class="cell cell--l">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">multi-chain flooor</span><span class="n">same auction contract beyond Base</span></div>
-          <div class="box"><span class="t">shared settlement</span><span class="n">one epoch clock across deployments</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">flooor SDK</span><span class="n">drop a working auction into any app</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">agent marketplace</span><span class="n">bots bid, sign and claim end to end</span></div>
         </div>
-        <div class="cell cell--l">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">the reference floor</span><span class="n">the daily print is the number lenders, indices and marketplaces quote</span></div>
-          <div class="box"><span class="t">floor oracle</span><span class="n">a signed price feed any contract can read</span></div>
-          <div class="box"><span class="t">collection treasuries</span><span class="n">a collection runs its own flooor as its treasury</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">wallet-native flooor</span><span class="n">bid, sign and claim without leaving the wallet you already use</span></div>
+          <div class="box"><span class="t">one-tap sponsor</span><span class="n">fund a day from anywhere the button is embedded</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">open data commons</span><span class="n">every floor print, free, for anyone to build on</span></div>
         </div>
-        <div class="cell cell--l">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">quantum-safe settlement</span><span class="n">the auction settles under hash-based signatures — a listing outlives the cryptography it was born with</span></div>
-          <div class="box"><span class="t">sealed bids</span><span class="n">bids committed under a post-quantum hash, revealed at settlement</span></div>
-          <div class="box"><span class="t">eternal listings</span><span class="n">a collection's floor survives a signature-scheme migration untouched</span></div>
+        <div class="cell cell--s">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">post-quantum smart accounts</span><span class="n">bid, sign and claim from an account whose keys are already quantum-safe</span></div>
+          <div class="box"><span class="t">PQ agent wallets</span><span class="n">the spend permission that signs for you, under the new scheme</span></div>
+          <div class="box"><span class="t">rocket cargo</span><span class="n">a physical lot won at auction, off the pad and anywhere on Earth inside an hour</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">crypto review</span><span class="n">the whole stack re-audited against a quantum adversary</span></div>
         </div>
 
         <!-- north stars, spanning the layer rows -->
@@ -695,39 +706,48 @@
           </div>
         </div>
 
-        <!-- ── S — surface layer ── -->
-        <div class="row-label row-label--s">
-          <div class="letter">S</div>
-          <div class="what">surface</div>
+        <!-- ── month band, between the two layers ── -->
+        <div class="corner"></div>
+        <div class="month-head">September 2026</div>
+        <div class="month-head">November 2026</div>
+        <div class="month-head">February 2027</div>
+        <div class="month-head">June 2027</div>
+        <div class="month-head">January 2028</div>
+        <div class="month-head">March 2030</div>
+
+        <!-- ── L — listings layer ── -->
+        <div class="row-label row-label--l">
+          <div class="letter">L</div>
+          <div class="what">listings</div>
         </div>
-        <div class="cell cell--s">
-          <div class="box box--head"><span class="tag">headliner</span><span class="t">agent wallets</span><span class="n">scoped spend permission signs every epoch for you</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">MCP plugin GA</span><span class="n">the flooor plugin ships stable</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">sign-phase alerts</span><span class="n">push before the window closes</span></div>
+        <div class="cell cell--l">
+          <div class="box box--head"><span class="tag">headliner</span><span class="t">parallel epochs</span><span class="n">every listed collection runs its own auction clock</span></div>
+          <div class="box"><span class="t">guarded sign &amp; claim</span><span class="n">pre-flight simulation, decoded reverts</span></div>
+          <div class="box"><span class="t">anti-snipe extension</span><span class="n">late bid pushes settlement by a few minutes</span></div>
         </div>
-        <div class="cell cell--s">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">mini app</span><span class="n">full flooor inside a feed, no site visit</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">embeddable widget</span><span class="n">live floor and bid button on any site</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">creator dashboard</span><span class="n">open and run your own flooor</span></div>
+        <div class="cell cell--l">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">permissionless listing</span><span class="n">any Base collection opens its own flooor</span></div>
+          <div class="box"><span class="t">bid escrow &amp; auto-refund</span><span class="n">outbid funds return in the same tx</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">listing review queue</span><span class="n">spam and copymint filtering</span></div>
         </div>
-        <div class="cell cell--s">
-          <div class="box"><span class="t">public API &amp; indexer</span><span class="n">epochs, bids and vaults, queryable</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">third-party frontends</span><span class="n">flooor without flooor.fun</span></div>
+        <div class="cell cell--l">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">basket auctions</span><span class="n">bid on a set, settle as one lot</span></div>
+          <div class="box"><span class="t">flooor index</span><span class="n">cross-collection floor print, published onchain</span></div>
+          <div class="box"><span class="t">bid delegation</span><span class="n">bid on behalf of a vault or a DAO</span></div>
         </div>
-        <div class="cell cell--s">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">flooor SDK</span><span class="n">drop a working auction into any app</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">agent marketplace</span><span class="n">bots bid, sign and claim end to end</span></div>
+        <div class="cell cell--l">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">multi-chain flooor</span><span class="n">same auction contract beyond Base</span></div>
+          <div class="box"><span class="t">shared settlement</span><span class="n">one epoch clock across deployments</span></div>
         </div>
-        <div class="cell cell--s">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">wallet-native flooor</span><span class="n">bid, sign and claim without leaving the wallet you already use</span></div>
-          <div class="box"><span class="t">one-tap sponsor</span><span class="n">fund a day from anywhere the button is embedded</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">open data commons</span><span class="n">every floor print, free, for anyone to build on</span></div>
+        <div class="cell cell--l">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">the reference floor</span><span class="n">the daily print is the number lenders, indices and marketplaces quote</span></div>
+          <div class="box"><span class="t">floor oracle</span><span class="n">a signed price feed any contract can read</span></div>
+          <div class="box"><span class="t">collection treasuries</span><span class="n">a collection runs its own flooor as its treasury</span></div>
         </div>
-        <div class="cell cell--s">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">post-quantum smart accounts</span><span class="n">bid, sign and claim from an account whose keys are already quantum-safe</span></div>
-          <div class="box"><span class="t">PQ agent wallets</span><span class="n">the spend permission that signs for you, under the new scheme</span></div>
-          <div class="box"><span class="t">rocket cargo</span><span class="n">a physical lot won at auction, off the pad and anywhere on Earth inside an hour</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">crypto review</span><span class="n">the whole stack re-audited against a quantum adversary</span></div>
+        <div class="cell cell--l">
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">quantum-safe settlement</span><span class="n">the auction settles under hash-based signatures — a listing outlives the cryptography it was born with</span></div>
+          <div class="box"><span class="t">sealed bids</span><span class="n">bids committed under a post-quantum hash, revealed at settlement</span></div>
+          <div class="box"><span class="t">eternal listings</span><span class="n">a collection's floor survives a signature-scheme migration untouched</span></div>
         </div>
 
       </div>
@@ -796,8 +816,10 @@
 
       <dt>What do the columns represent?</dt>
       <dd>
-        <p>Stages, not dates. Cobalt is stage 1 and the only column with a calendar date on it, because it is
-        already being built. What is live today isn't on the map — the map is what comes next.</p>
+        <p>Stages, not dates. Cobalt is stage 1 and the one column that is already being built. What is live today
+        isn't on the map — the map is what comes next.</p>
+        <p>The month band running between the two layers is the earliest each stage could land if everything goes
+        right. It is a reading aid, not a schedule: the market cap is still what opens the column.</p>
         <p>Everything after Cobalt is gated on protocol market cap rather than a quarter: the $5M, $10M, $100M, $1B+ and $1T+
         columns unlock when flooor reaches that market cap. Each one is a bigger surface to pay for and a bigger
         vault to defend, so the scope inside it is sized to what the protocol can carry at that point.</p>
