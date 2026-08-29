@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L1 Strawmap — Ethereum Draft Roadmap</title>
-  <meta name="description" content="A work-in-progress draft of the Ethereum L1 protocol roadmap, maintained by EF Architecture. Covering consensus, data, and execution layer priorities through 2030+.">
-  <meta name="keywords" content="Ethereum, roadmap, strawmap, L1, protocol, EF, Ethereum Foundation, blockchain, consensus layer, execution layer, data layer">
-  <meta name="author" content="Ethereum Foundation Protocol Team">
+  <title>flooor strawmap — draft protocol roadmap</title>
+  <meta name="description" content="A work-in-progress draft roadmap for the flooor protocol on Base. Cobalt ships September 2026; D*, E* and F* follow. Covering the auction, vault and surface layers.">
+  <meta name="keywords" content="flooor, flooor.fun, roadmap, strawmap, NFT auction, Base, royalties, sign and claim, vault, protocol roadmap">
+  <meta name="author" content="flooor">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="L1 Strawmap — Ethereum Draft Roadmap">
-  <meta property="og:description" content="A work-in-progress draft of the Ethereum L1 protocol roadmap, maintained by EF Architecture.">
-  <meta property="og:url" content="https://strawmap-eth.netlify.app/">
-  <meta property="og:site_name" content="Ethereum Strawmap">
-  <meta property="og:image" content="https://strawmap-eth.netlify.app/og-card.png">
+  <meta property="og:title" content="flooor strawmap — draft protocol roadmap">
+  <meta property="og:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then D*, E*, F*.">
+  <meta property="og:url" content="https://omgbbqhaxx.github.io/flooorstrawmap/">
+  <meta property="og:site_name" content="flooor strawmap">
+  <meta property="og:image" content="https://omgbbqhaxx.github.io/flooorstrawmap/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="L1 Strawmap — Ethereum Draft Roadmap">
-  <meta name="twitter:description" content="A work-in-progress draft of the Ethereum L1 protocol roadmap, maintained by EF Architecture.">
-  <meta name="twitter:image" content="https://strawmap-eth.netlify.app/og-card.png">
+  <meta name="twitter:title" content="flooor strawmap — draft protocol roadmap">
+  <meta name="twitter:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then D*, E*, F*.">
+  <meta name="twitter:image" content="https://omgbbqhaxx.github.io/flooorstrawmap/og-card.png">
 
   <!-- Favicon (SVG) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 240'%3E%3Cpath d='M69.9988 239.096L0 136.454L69.9988 181.206L140 136.454L69.9988 239.096Z' fill='black'/%3E%3Cpath d='M140 121.991L69.9988 166.749L0 121.991L69.9988 0L140 121.991Z' fill='black'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Crect x='10' y='150' width='140' height='14' fill='black'/%3E%3Crect x='26' y='112' width='108' height='14' fill='black' opacity='0.72'/%3E%3Crect x='42' y='74' width='76' height='14' fill='black' opacity='0.48'/%3E%3Crect x='58' y='36' width='44' height='14' fill='black' opacity='0.26'/%3E%3C/svg%3E">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://strawmap-eth.netlify.app/">
+  <link rel="canonical" href="https://omgbbqhaxx.github.io/flooorstrawmap/">
 
   <link rel="stylesheet" href="shared.css">
   <style>
@@ -37,33 +37,24 @@
     /* ── Site Header ── */
     .site-header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
       gap: 1.25rem;
       padding: 0.75rem 1.5rem;
-      background: rgba(255, 255, 255, 0.90);
+      background: rgba(247, 245, 241, 0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid var(--hairline);
     }
-    .site-header .eth-logo {
-      height: 28px;
-      width: auto;
-      flex-shrink: 0;
-    }
+    .site-header .brand-logo { height: 26px; width: auto; flex-shrink: 0; }
     .site-header .header-title {
       font-size: 1.25rem;
       font-weight: 400;
       color: var(--fg);
       line-height: 1.2;
     }
-    .site-header .header-title span {
-      color: var(--fg-dim);
-      font-weight: 400;
-    }
+    .site-header .header-title span { color: var(--fg-dim); }
     .site-header .header-title a {
       color: var(--fg);
       text-decoration: underline;
@@ -77,12 +68,7 @@
       color: var(--fg-dim);
       flex-shrink: 0;
     }
-    .site-header .header-meta div {
-      line-height: 1.5;
-    }
-    .site-header .header-meta .label {
-      color: var(--fg-dim);
-    }
+    .site-header .header-meta div { line-height: 1.5; }
     .site-header .header-meta a {
       color: var(--fg);
       text-decoration: underline;
@@ -94,17 +80,174 @@
       position: fixed;
       inset: 0;
       top: 52px;
+      background: var(--bg);
+      overflow: auto;
+      cursor: grab;
+      overscroll-behavior: contain;
+    }
+    .map.dragging { cursor: grabbing; }
+    .map-inner {
+      padding: 2rem 2rem 5rem;
+      width: max-content;
+      transform-origin: 0 0;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 92px repeat(5, 232px) 268px;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .col-head {
+      padding: 0.5rem 0.6rem;
+      border-bottom: 2px solid var(--fg);
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .col-head .name {
+      font-size: 0.9375rem;
+      letter-spacing: -0.01em;
+    }
+    .col-head .date {
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fg-dim);
+    }
+    .col-head.is-next { border-bottom-color: var(--gold); }
+    .col-head.is-next .name { color: var(--gold); }
+    .col-head.is-past { border-bottom-color: var(--hairline); }
+    .col-head.is-past .name { color: var(--faint); }
+
+    .row-label {
+      display: flex;
+      flex-direction: column;
       justify-content: center;
+      gap: 4px;
+      padding-right: 0.5rem;
+      border-right: 1px solid var(--hairline);
+    }
+    .row-label .letter {
+      font-size: 1.75rem;
+      line-height: 1;
+      color: var(--fg);
+    }
+    .row-label .what {
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fg-dim);
+    }
+
+    .cell {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 4px 0;
+    }
+
+    /* ── Boxes ── */
+    .box {
+      border: 1px solid var(--hairline);
       background: #fff;
-      overflow: hidden;
+      padding: 0.5rem 0.6rem;
+      font-size: 0.75rem;
+      line-height: 1.45;
     }
-    .map iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
+    .box .t { display: block; }
+    .box .n {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.6875rem;
+      color: var(--fg-dim);
     }
+    .box--headliner {
+      background: #2a2724;
+      border-color: #2a2724;
+      color: #f7f5f1;
+    }
+    .box--headliner .n { color: rgba(247, 245, 241, 0.68); }
+    .box--offchain {
+      background: transparent;
+      border-style: dashed;
+      color: var(--fg-dim);
+    }
+    .box--shipped {
+      background: transparent;
+      border-color: var(--hairline);
+      color: var(--faint);
+    }
+    .box--shipped .n { color: var(--faint); }
+    .box a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── North stars ── */
+    .northstars {
+      grid-column: 7;
+      grid-row: 2 / span 3;
+      border-left: 1px solid var(--hairline);
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    .ns {
+      background: #000;
+      color: #f7f5f1;
+      padding: 0.6rem 0.7rem;
+      font-size: 0.8125rem;
+      line-height: 1.4;
+    }
+    .ns small {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.6875rem;
+      color: rgba(247, 245, 241, 0.66);
+    }
+
+    /* ── Legend ── */
+    .legend {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      font-size: 0.6875rem;
+      color: var(--fg-dim);
+      border-top: 1px solid var(--hairline);
+      padding-top: 0.75rem;
+      padding-right: 7rem;
+      max-width: 1580px;
+    }
+    .legend .key { display: inline-flex; align-items: center; gap: 0.45rem; }
+    .swatch { width: 22px; height: 12px; border: 1px solid var(--hairline); background: #fff; }
+    .swatch--headliner { background: #2a2724; border-color: #2a2724; }
+    .swatch--offchain { background: transparent; border-style: dashed; }
+    .swatch--ns { background: #000; border-color: #000; }
+    .legend .rev { margin-left: auto; color: var(--faint); }
+
+    /* ── Zoom ── */
+    .zoom {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 120;
+      display: flex;
+      gap: 4px;
+    }
+    .zoom button {
+      width: 30px; height: 30px;
+      background: var(--bg);
+      border: 1px solid var(--hairline);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      cursor: pointer;
+    }
+    .zoom button:hover { border-color: var(--fg); }
 
     /* ── Toggle button ── */
     .toggle-btn {
@@ -115,42 +258,29 @@
       font-family: var(--font-body);
       font-size: 0.6875rem;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
       flex-shrink: 0;
-      margin-left: 0;
     }
-    .toggle-btn:hover {
-      opacity: 0.8;
-    }
-    .toggle-btn--outline {
-      background: transparent;
-      color: var(--fg);
-    }
+    .toggle-btn:hover { opacity: 0.8; }
 
     /* ── Scrim ── */
     .scrim {
       position: fixed;
       inset: 0;
       z-index: 300;
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(26, 26, 26, 0.15);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.35s ease;
     }
-    .scrim.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .scrim.open { opacity: 1; pointer-events: auto; }
 
     /* ── Sidebar ── */
     .sidebar {
       position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; right: 0; bottom: 0;
       z-index: 400;
       width: min(420px, 90vw);
-      background: rgba(255, 255, 255, 0.80);
+      background: rgba(247, 245, 241, 0.86);
       backdrop-filter: blur(16px);
       transform: translateX(100%);
       transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -159,10 +289,7 @@
       display: flex;
       flex-direction: column;
     }
-    .sidebar.open {
-      transform: translateX(0);
-    }
-
+    .sidebar.open { transform: translateX(0); }
     .sidebar-close {
       align-self: flex-end;
       background: var(--fg);
@@ -173,64 +300,36 @@
       padding: 0.35rem 0.75rem;
       cursor: pointer;
       margin-bottom: var(--space-md);
-      transition: opacity 0.2s;
     }
     .sidebar-close:hover { opacity: 0.8; }
-
-    .sidebar h1 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      margin-bottom: var(--space-sm);
-    }
-    .sidebar ol, .sidebar ul {
-      padding-left: 1.5rem;
-      margin: 0.5rem 0;
-    }
-    .sidebar li {
-      margin-bottom: 0.5rem;
-    }
-    .sidebar .intro {
-      color: var(--fg-dim);
-      font-size: 0.875rem;
-      margin-bottom: var(--space-md);
-    }
+    .sidebar ol, .sidebar ul { padding-left: 1.5rem; margin: 0.5rem 0; }
+    .sidebar li { margin-bottom: 0.5rem; }
 
     /* ── Footer (mobile only) ── */
-    .site-footer {
-      display: none;
-    }
+    .site-footer { display: none; }
 
     @media (max-width: 768px) {
       .site-header { gap: 0.75rem; }
       .site-header .header-meta { display: none; }
       .site-header .header-title { flex: 1; font-size: 1rem; }
       .site-header .toggle-btn { display: none; }
+      .zoom { bottom: 3.75rem; }
       .site-footer {
         display: flex;
         position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        bottom: 0; left: 0; right: 0;
         z-index: 100;
         padding: 0.6rem 1.5rem;
-        background: rgba(255, 255, 255, 0.90);
+        background: rgba(247, 245, 241, 0.92);
         backdrop-filter: blur(8px);
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        border-top: 1px solid var(--hairline);
         font-size: 0.6875rem;
         color: var(--fg-dim);
         justify-content: space-between;
         align-items: center;
       }
-      .site-footer div {
-        line-height: 1.5;
-      }
-      .site-footer .label {
-        color: var(--fg-dim);
-      }
-      .site-footer a {
-        color: var(--fg);
-        text-decoration: underline;
-        text-underline-offset: 2px;
-      }
+      .site-footer div { line-height: 1.5; }
+      .site-footer a { color: var(--fg); text-decoration: underline; text-underline-offset: 2px; }
     }
   </style>
 </head>
@@ -238,14 +337,14 @@
 
   <!-- Header -->
   <header class="site-header">
-    <img src="eth.svg" alt="Ethereum" class="eth-logo">
+    <img src="flooor.svg" alt="flooor" class="brand-logo">
     <div class="header-title">
-      strawmap.org <span>by</span> <a href="https://protocol.ethereum.foundation" target="_blank">EF protocol</a>
+      strawmap <span>by</span> <a href="https://flooor.fun" target="_blank">flooor</a>
     </div>
     <div class="header-meta">
       <div>
-        <div class="label">maintained by EF Architecture</div>
-        <div><a href="https://x.com/drakefjustin" target="_blank">Justin</a>, <a href="https://x.com/soispoke" target="_blank">Thomas</a>, <a href="https://x.com/nero_eth" target="_blank">Toni</a>, <a href="https://x.com/VitalikButerin" target="_blank">Vitalik</a></div>
+        <div class="label">next release — Cobalt, September 2026</div>
+        <div>draft rev. 2026-08-29 · <a href="https://vrnouns.gitbook.io/flooor" target="_blank">docs</a></div>
       </div>
     </div>
     <div style="flex-shrink:0">
@@ -254,160 +353,289 @@
   </header>
 
   <!-- Full-screen map -->
-  <div class="map">
-    <iframe
-      src="https://docs.google.com/drawings/d/1GkcGfQv9kxgrYQMyu0BYGcZya0gIDG_wQ7GsFJEsdzY/preview"
-      allowfullscreen
-    ></iframe>
+  <div class="map" id="map">
+    <div class="map-inner" id="mapInner">
+      <div class="grid">
+
+        <!-- ── Column heads ── -->
+        <div></div>
+        <div class="col-head is-past">
+          <div class="name">v3</div>
+          <div class="date">shipped · live today</div>
+        </div>
+        <div class="col-head is-next">
+          <div class="name">Cobalt</div>
+          <div class="date">September 2026</div>
+        </div>
+        <div class="col-head">
+          <div class="name">D&#42;</div>
+          <div class="date">Q1 2027</div>
+        </div>
+        <div class="col-head">
+          <div class="name">E&#42;</div>
+          <div class="date">Q3 2027</div>
+        </div>
+        <div class="col-head">
+          <div class="name">F&#42;</div>
+          <div class="date">2028</div>
+        </div>
+        <div class="col-head">
+          <div class="name">north stars</div>
+          <div class="date">no date</div>
+        </div>
+
+        <!-- ── A — auction layer ── -->
+        <div class="row-label">
+          <div class="letter">A</div>
+          <div class="what">auction</div>
+        </div>
+        <div class="cell">
+          <div class="box box--shipped"><span class="t">continuous daily auction</span><span class="n">one epoch per day, highest bid wins</span></div>
+          <div class="box box--shipped"><span class="t">sellToHighest settlement</span><span class="n">99.5% to holder, 0.5% protocol</span></div>
+          <div class="box box--shipped"><span class="t">min-bid floor</span><span class="n">next bid computed onchain</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">parallel epochs</span><span class="n">headliner — every listed collection runs its own auction clock</span></div>
+          <div class="box"><span class="t">guarded sign &amp; claim</span><span class="n">pre-flight simulation, decoded reverts</span></div>
+          <div class="box"><span class="t">anti-snipe extension</span><span class="n">late bid pushes settlement by a few minutes</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">permissionless listing</span><span class="n">headliner — any Base collection opens its own flooor</span></div>
+          <div class="box"><span class="t">bid escrow &amp; auto-refund</span><span class="n">outbid funds return in the same tx</span></div>
+          <div class="box box--offchain"><span class="t">listing review queue</span><span class="n">offchain — spam and copymint filtering</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">basket auctions</span><span class="n">headliner — bid on a set, settle as one lot</span></div>
+          <div class="box"><span class="t">flooor index</span><span class="n">cross-collection floor print, published onchain</span></div>
+          <div class="box"><span class="t">bid delegation</span><span class="n">bid on behalf of a vault or a DAO</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">multi-chain flooor</span><span class="n">headliner — same auction contract beyond Base</span></div>
+          <div class="box"><span class="t">shared settlement</span><span class="n">one epoch clock across deployments</span></div>
+        </div>
+
+        <!-- north stars block (spans the three layer rows) -->
+        <div class="northstars">
+          <div class="ns">everyday floor<small>every collection gets a real, honest price every single day</small></div>
+          <div class="ns">zero-click yield<small>sign and claim with no wallet popup, no staking, no lockup</small></div>
+          <div class="ns">open listing<small>any collection can open a flooor without asking anyone</small></div>
+          <div class="ns">royalties to holders<small>100% of the vault goes to the people who show up</small></div>
+          <div class="ns">agent-native<small>the whole protocol reachable by an agent, not just a browser</small></div>
+        </div>
+
+        <!-- ── V — vault layer ── -->
+        <div class="row-label">
+          <div class="letter">V</div>
+          <div class="what">vault</div>
+        </div>
+        <div class="cell">
+          <div class="box box--shipped"><span class="t">5% royalty vault</span><span class="n">every sale tops up the daily pool</span></div>
+          <div class="box box--shipped"><span class="t">16h sign / 8h claim</span><span class="n">even split among signers</span></div>
+          <div class="box box--shipped"><span class="t">total value signed (TVS)</span><span class="n">live participation metric</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">weighted split</span><span class="n">headliner — share scales with signed value, not headcount</span></div>
+          <div class="box"><span class="t">claim-all</span><span class="n">every collection, one transaction</span></div>
+          <div class="box"><span class="t">unclaimed rollover</span><span class="n">leftovers roll into the next epoch instead of stalling</span></div>
+        </div>
+        <div class="cell">
+          <div class="box"><span class="t">streaming accrual</span><span class="n">vault grows per block, not per epoch close</span></div>
+          <div class="box"><span class="t">auto-compound</span><span class="n">claim straight back into a bid</span></div>
+          <div class="box box--offchain"><span class="t">vault analytics</span><span class="n">offchain — yield history per collection</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">loyalty multiplier</span><span class="n">headliner — uninterrupted sign streaks earn a larger share</span></div>
+          <div class="box"><span class="t">split routing</span><span class="n">creators, holders and treasury set per collection</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">vault governance</span><span class="n">headliner — holders vote the royalty split of their own collection</span></div>
+          <div class="box"><span class="t">protocol fee switch</span><span class="n">0.5% redirected by holder vote</span></div>
+        </div>
+
+        <!-- ── S — surface layer ── -->
+        <div class="row-label">
+          <div class="letter">S</div>
+          <div class="what">surface</div>
+        </div>
+        <div class="cell">
+          <div class="box box--shipped"><span class="t">flooor.fun app</span><span class="n">eight collection pages, live auction state</span></div>
+          <div class="box box--shipped"><span class="t">Base Account connect</span><span class="n">bid, sign, claim from the browser</span></div>
+          <div class="box box--offchain"><span class="t">MCP plugin (beta)</span><span class="n">offchain — auction reads and writes from an agent</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">agent wallets</span><span class="n">headliner — scoped spend permission signs every epoch for you</span></div>
+          <div class="box box--offchain"><span class="t">MCP plugin GA</span><span class="n">offchain — the flooor plugin ships stable</span></div>
+          <div class="box box--offchain"><span class="t">sign-phase alerts</span><span class="n">offchain — push before the window closes</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">mini app</span><span class="n">headliner — full flooor inside a feed, no site visit</span></div>
+          <div class="box box--offchain"><span class="t">embeddable widget</span><span class="n">offchain — live floor and bid button on any site</span></div>
+          <div class="box box--offchain"><span class="t">creator dashboard</span><span class="n">offchain — open and run your own flooor</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--offchain"><span class="t">public API &amp; indexer</span><span class="n">offchain — epochs, bids and vaults, queryable</span></div>
+          <div class="box box--offchain"><span class="t">third-party frontends</span><span class="n">offchain — flooor without flooor.fun</span></div>
+        </div>
+        <div class="cell">
+          <div class="box box--headliner"><span class="t">flooor SDK</span><span class="n">headliner — drop a working auction into any app</span></div>
+          <div class="box box--offchain"><span class="t">agent marketplace</span><span class="n">offchain — bots bid, sign and claim end to end</span></div>
+        </div>
+
+      </div>
+
+      <!-- Legend -->
+      <div class="legend">
+        <span class="key"><span class="swatch swatch--headliner"></span> headliner — one per layer, per release</span>
+        <span class="key"><span class="swatch"></span> onchain upgrade</span>
+        <span class="key"><span class="swatch swatch--offchain"></span> offchain work</span>
+        <span class="key"><span class="swatch swatch--ns"></span> north star</span>
+        <span class="rev">draft · rev. 2026-08-29 · dates are intent, not promises</span>
+      </div>
+    </div>
   </div>
 
+  <!-- Zoom -->
+  <div class="zoom">
+    <button id="zoomOut" aria-label="Zoom out">−</button>
+    <button id="zoomReset" aria-label="Reset zoom">◻</button>
+    <button id="zoomIn" aria-label="Zoom in">+</button>
+  </div>
 
   <!-- Scrim -->
   <div class="scrim" id="scrim"></div>
 
   <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar" role="complementary" aria-label="About the Strawmap">
+  <aside class="sidebar" id="sidebar" role="complementary" aria-label="About the flooor strawmap">
     <button class="sidebar-close" id="closeBtn" aria-label="Close sidebar">close ×</button>
 
     <p style="font-size: 1rem; margin-bottom: var(--space-sm);">
-      Introducing strawmap, a strawman L1 roadmap by <a href="https://protocol.ethereum.foundation" target="_blank">EF Protocol</a>.
+      Introducing the flooor strawmap, a strawman roadmap for the
+      <a href="https://flooor.fun" target="_blank">flooor</a> protocol on Base.
     </p>
     <p style="font-size: 1rem; margin-bottom: var(--space-md);">
-      The future is bright. Believe in something. Believe in a strawmap.
+      Cobalt lands in September. Everything after it is a sketch, not a promise.
     </p>
 
     <h2 style="margin-top: var(--space-md); font-size: 1.5rem;">FAQ</h2>
     <dl class="faq-list">
-      <dt>Who is this for?</dt>
-      <dd>
-        The document, available at <a href="https://strawmap.org">strawmap.org</a>, is intended for advanced readers.
-        It is a dense and technical resource primarily for researchers, developers, and participants in Ethereum
-        governance. Visit <a href="https://ethereum.org/roadmap" class="link-out">ethereum.org/roadmap</a> for more
-        introductory material. Accessible explainers unpacking the strawmap will follow soon&trade;.
-      </dd>
-
       <dt>What is the strawmap?</dt>
       <dd>
-        The strawmap is an invitation to view L1 protocol upgrades through a holistic lens. By placing proposals on a
-        single visual it provides a unified perspective on ambitious for Ethereum L1. The time horizon spans years,
-        extending beyond the immediate focus of All Core Devs (ACD) and
-        <a href="https://forkcast.org" target="_blank">forkcast.org</a> which typically cover only the next couple of forks.
+        A single page that puts every planned flooor upgrade — the auction contract, the royalty vault, and the
+        surfaces people actually touch — on one timeline. It exists so a change in one layer can be read against
+        everything it depends on, instead of living in a separate thread.
       </dd>
 
-      <dt>What are some of the highlights?</dt>
+      <dt>Who is this for?</dt>
       <dd>
-        <p>The strawmap features five simple north stars, presented as black boxes on the right:</p>
+        Holders, bidders, collection creators, and anyone building on top of the flooor contract. It is dense on
+        purpose. If you just want to bid, sign, and claim, go to
+        <a href="https://flooor.fun" class="link-out">flooor.fun</a>; the
+        <a href="https://vrnouns.gitbook.io/flooor" class="link-out">documentation</a> covers the mechanics.
+      </dd>
+
+      <dt>What is shipping next?</dt>
+      <dd>
+        <p><strong>Cobalt, September 2026.</strong> Three headliners:</p>
         <ul>
-          <li><strong>fast L1:</strong> transaction inclusion and chain finality in seconds</li>
-          <li><strong>gigagas L1:</strong> 1 gigagas/sec (10K TPS) at L1, via zkEVMs and real-time proving</li>
-          <li><strong>teragas L2:</strong> 1 gigabyte/sec (10M TPS) at L2, via data availability sampling</li>
-          <li><strong>post quantum L1:</strong> centuries-long cryptographic security, via hash-based schemes</li>
-          <li><strong>private L1:</strong> privacy as a first-class citizen, via L1 shielded transfers</li>
+          <li><strong>parallel epochs</strong> — each listed collection runs its own auction clock rather than sharing one</li>
+          <li><strong>weighted split</strong> — your share of the vault scales with the value you signed, not with headcount</li>
+          <li><strong>agent wallets</strong> — a scoped spend permission signs and claims every epoch without a wallet popup</li>
         </ul>
-      </dd>
-
-      <dt>What is the origin story?</dt>
-      <dd>
-        The strawman roadmap originated as a discussion starter at an EF workshop in Jan 2026, with the aim of helping
-        integrate lean Ethereum with shorter-term initiatives. Upgrade dependencies and fork constraints became
-        particularly effective at surfacing valuable discussion topics. The strawman is now shared publicly in a spirit
-        of proactive transparency and accelerationism.
-      </dd>
-
-      <dt>Why the "strawmap" name?</dt>
-      <dd>
-        <p>&ldquo;Strawmap&rdquo; is a portmanteau of &ldquo;strawman&rdquo; and &ldquo;roadmap&rdquo;. The strawman qualifier is deliberate for two reasons:</p>
-        <ol>
-          <li>It acknowledges the limits of drafting a roadmap in a highly decentralized ecosystem. An &ldquo;official&rdquo; roadmap reflecting all Ethereum stakeholders is effectively impossible. Rough consensus is fundamentally an emergent, continuous, and inherent uncertain process.</li>
-          <li>It underscores the document&rsquo;s status as a work-in-progress. Although it originated within the EF Protocol cluster, there are competing views held among its 100 members, not to mention a rich diversity of non-EFer views.</li>
-        </ol>
-        <p>The strawmap is not a prediction. It is an accelerationist coordination tool, sketching one
-        reasonably coherent path among millions of possible outcomes.</p>
-      </dd>
-
-      <dt>What is the strawmap time frame?</dt>
-      <dd>
-        The strawmap focuses on forks extending through the end of the decade. It outlines seven forks by 2029 based
-        on a rough cadence of one fork every six months. While grounded in current expectations, these timelines should
-        be treated with healthy skepticism. The current draft assumes human-first development, and AI-accelerated
-        R&amp;D could significantly compress schedules.
       </dd>
 
       <dt>What do the letters on top represent?</dt>
       <dd>
-        The strawmap is organized as a timeline, with forks progressing from left to right. Consensus layer forks
-        follow a star-based naming scheme with incrementing first letters: Altair, Bellatrix, Capella, Deneb, Electra,
-        Fulu, etc. Upcoming forks such as Glamsterdam and Hegot&aacute; have finalized names. Other forks, like I*
-        and J*, have placeholder names (with I* pronounced "I star").
+        Releases are named on an incrementing first letter, mineral-style. Cobalt is the next one with a finalized
+        name. The releases after it — D&#42;, E&#42; and F&#42; — are placeholders (D&#42; is pronounced "D star") and will be
+        named as their scope firms up.
       </dd>
 
-      <dt>What do the colors and arrows represent?</dt>
+      <dt>What do the rows and colors represent?</dt>
       <dd>
-        <p>Upgrades are grouped into three color-coded horizontal layers: consensus (CL), data (DL), execution
-        (EL)—C, D, E. Dark boxes denote headliners (see below), grey boxes indicate offchain upgrades, and black
-        boxes represent north stars. An explanatory legend appears at the bottom.</p>
-        <p>Within each layer, upgrades are further organized by theme and sub-theme. Arrows signal hard technical
-        dependencies or natural upgrade progressions. Underlined text in boxes links to relevant EIPs and write-ups.</p>
+        <p>Upgrades are grouped into three layers: auction (A), vault (V), and surface (S). Dark boxes are
+        headliners, dashed boxes are offchain work, faint boxes have already shipped, and the black boxes on the
+        right are north stars — directions with no date attached.</p>
+        <p>Time runs left to right. Anything to the right of Cobalt is scope, not schedule.</p>
       </dd>
 
       <dt>What are headliners?</dt>
       <dd>
-        <p>Headliners are particularly prominent and ambitious upgrades. To maintain a fast fork cadence, the modern
-        ACD process limits itself to one consensus and one execution headliner per fork. For example, in Glamsterdam,
-        these are ePBS and BALs, respectively.</p>
-        <p>(L* is an exceptional fork, displaying two headliners tied to the bigger lean consensus fork. Lean consensus
-        landing in L* would be a fateful coincidence.)</p>
+        The one upgrade per layer that a release is actually about. Capping it at one keeps the cadence honest:
+        a release ships when its three headliners are done, and smaller items ride along if they are ready.
       </dd>
 
-      <dt>Will the strawmap evolve?</dt>
+      <dt>What are the north stars?</dt>
       <dd>
-        Yes, the strawmap is a living and malleable document. It will evolve alongside community feedback, R&amp;D
-        advancements, and governance. Expect at least quarterly updates, with the latest revision date noted on the document.
+        <ul>
+          <li><strong>everyday floor:</strong> every collection gets a real, honest price every single day</li>
+          <li><strong>zero-click yield:</strong> sign and claim with no popup, no staking, no lockup</li>
+          <li><strong>open listing:</strong> any collection can open a flooor without asking permission</li>
+          <li><strong>royalties to holders:</strong> 100% of the vault goes to the people who show up</li>
+          <li><strong>agent-native:</strong> the whole protocol reachable by an agent, not just a browser</li>
+        </ul>
+      </dd>
+
+      <dt>What is the time frame?</dt>
+      <dd>
+        Roughly two releases a year through 2028. Cobalt has a date because it is built; D&#42;, E&#42; and F&#42; carry
+        quarters as an ordering hint. Treat them with healthy skepticism — a single dependency slipping moves
+        everything to its right.
+      </dd>
+
+      <dt>Why "strawmap"?</dt>
+      <dd>
+        <p>A portmanteau of "strawman" and "roadmap". The strawman qualifier is deliberate:</p>
+        <ol>
+          <li>It is a discussion starter. Publishing a shape people can argue with beats publishing nothing.</li>
+          <li>It is a work in progress. Scope moves between releases, and items get dropped when they turn out not to matter.</li>
+        </ol>
+        <p>The strawmap is not a prediction. It is one coherent path among many.</p>
+      </dd>
+
+      <dt>Will it change?</dt>
+      <dd>
+        Yes. Expect a revision at least every quarter, with the date noted in the legend at the bottom of the map.
       </dd>
 
       <dt>Can I share feedback?</dt>
       <dd>
-        Yes, feedback is actively encouraged. The strawmap is maintained by the EF Architecture team:
-        <a href="https://x.com/drakefjustin" target="_blank">Justin</a>,
-        <a href="https://x.com/soispoke" target="_blank">Thomas</a>,
-        <a href="https://x.com/nero_eth" target="_blank">Toni</a>,
-        <a href="https://x.com/VitalikButerin" target="_blank">Vitalik</a>.
-        General inquiries can be sent to <a href="mailto:strawmap@ethereum.org">strawmap@ethereum.org</a>.
+        Please do — especially if you hold, bid, or build on flooor. Open an issue on
+        <a href="https://github.com/omgbbqhaxx/flooor" target="_blank">GitHub</a> or reply to
+        <a href="https://x.com/flooordotfun" target="_blank">@flooordotfun</a>.
       </dd>
     </dl>
 
     <p style="margin-top: var(--space-md); font-size: 0.875rem;">
-      <a href="https://docs.google.com/drawings/d/1GkcGfQv9kxgrYQMyu0BYGcZya0gIDG_wQ7GsFJEsdzY/edit?usp=sharing" class="link-out">View full version on Google Drawings</a>
+      <a href="https://flooor.fun" class="link-out">Go to the live auction</a>
     </p>
-
   </aside>
 
   <!-- Footer (mobile only) -->
   <footer class="site-footer">
     <div>
-      <div class="label">maintained by EF Architecture</div>
-      <div><a href="https://x.com/drakefjustin" target="_blank">Justin</a>, <a href="https://x.com/soispoke" target="_blank">Thomas</a>, <a href="https://x.com/nero_eth" target="_blank">Toni</a>, <a href="https://x.com/VitalikButerin" target="_blank">Vitalik</a></div>
+      <div class="label">next release — Cobalt</div>
+      <div>September 2026 · draft rev. 2026-08-29</div>
     </div>
     <button class="toggle-btn" id="toggleBtnFooter">+ info</button>
   </footer>
 
   <script>
-    const sidebar = document.getElementById('sidebar');
-    const scrim   = document.getElementById('scrim');
-    const toggle  = document.getElementById('toggleBtn');
+    const sidebar  = document.getElementById('sidebar');
+    const scrim    = document.getElementById('scrim');
+    const toggle   = document.getElementById('toggleBtn');
     const closeBtn = document.getElementById('closeBtn');
 
     function openSidebar() {
       sidebar.classList.add('open');
       scrim.classList.add('open');
       sidebar.focus();
-      history.replaceState(null, '', '/faq');
+      history.replaceState(null, '', '#faq');
     }
 
     function closeSidebar() {
       sidebar.classList.remove('open');
       scrim.classList.remove('open');
-      history.replaceState(null, '', '/');
+      history.replaceState(null, '', location.pathname + location.search);
     }
 
     const toggleFooter = document.getElementById('toggleBtnFooter');
@@ -418,15 +646,43 @@
     scrim.addEventListener('click', closeSidebar);
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
-        closeSidebar();
-      }
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) closeSidebar();
     });
 
-    // Open sidebar if URL is /faq or has #faq
-    if (window.location.pathname === '/faq' || window.location.hash === '#faq') {
-      openSidebar();
+    if (window.location.hash === '#faq') openSidebar();
+
+    // ── Drag to pan ──
+    const map = document.getElementById('map');
+    let down = false, sx = 0, sy = 0, sl = 0, st = 0;
+
+    map.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('a, button')) return;
+      down = true;
+      sx = e.clientX; sy = e.clientY;
+      sl = map.scrollLeft; st = map.scrollTop;
+      map.classList.add('dragging');
+      map.setPointerCapture(e.pointerId);
+    });
+    map.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      map.scrollLeft = sl - (e.clientX - sx);
+      map.scrollTop  = st - (e.clientY - sy);
+    });
+    ['pointerup', 'pointercancel'].forEach((ev) =>
+      map.addEventListener(ev, () => { down = false; map.classList.remove('dragging'); })
+    );
+
+    // ── Zoom ──
+    const inner = document.getElementById('mapInner');
+    let scale = 1;
+    function applyScale() {
+      inner.style.transform = 'scale(' + scale + ')';
+      inner.style.width = (100 / scale) + '%';
+      inner.style.minWidth = 'max-content';
     }
+    document.getElementById('zoomIn').addEventListener('click', () => { scale = Math.min(1.6, scale + 0.1); applyScale(); });
+    document.getElementById('zoomOut').addEventListener('click', () => { scale = Math.max(0.5, scale - 0.1); applyScale(); });
+    document.getElementById('zoomReset').addEventListener('click', () => { scale = 1; applyScale(); });
   </script>
 </body>
 </html>

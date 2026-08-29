@@ -3,12 +3,15 @@
 
 /* ── Design Tokens ── */
 :root {
-  --bg:      #ffffff;
-  --fg:      #2c2c2c;
-  --fg-dim:  #6b6b6b;
-  --accent:  #4a4a4a;
-  --accent-dim: rgba(74, 74, 74, 0.08);
-  --surface: rgba(255, 255, 255, 0.92);
+  --bg:      #f7f5f1;
+  --fg:      #1a1a1a;
+  --fg-dim:  #75716a;
+  --faint:   #a8a39b;
+  --hairline:#e6e2da;
+  --gold:    #a4863d;
+  --accent:  #75716a;
+  --accent-dim: rgba(164, 134, 61, 0.10);
+  --surface: rgba(247, 245, 241, 0.92);
   --font-heading: 'IBM Plex Mono', 'Menlo', monospace;
   --font-body:    'IBM Plex Mono', 'Menlo', monospace;
   --max-prose: 680px;
