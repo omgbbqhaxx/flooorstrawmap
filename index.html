@@ -262,6 +262,14 @@
       font-size: 0.8125rem;
       line-height: 1.4;
     }
+    .ns .step {
+      display: inline-block;
+      min-width: 1.15rem;
+      margin-right: 0.4rem;
+      color: var(--gold);
+      font-size: 0.6875rem;
+    }
+    .ns a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .ns small {
       display: block;
       margin-top: 3px;
@@ -448,7 +456,7 @@
         </div>
         <div class="col-head is-ns">
           <div class="name">north stars</div>
-          <div class="date">no date</div>
+          <div class="date">no date &middot; in order</div>
         </div>
 
         <!-- ── A — auction layer ── -->
@@ -483,11 +491,11 @@
 
         <!-- north stars, spanning the three layer rows -->
         <div class="northstars">
-          <div class="ns">everyday floor<small>every collection gets a real, honest price every single day</small></div>
-          <div class="ns">zero-click yield<small>sign and claim with no wallet popup, no staking, no lockup</small></div>
-          <div class="ns">open listing<small>any collection can open a flooor without asking anyone</small></div>
-          <div class="ns">royalties to holders<small>100% of the vault goes to the people who show up</small></div>
-          <div class="ns">agent-native<small>the whole protocol reachable by an agent, not just a browser</small></div>
+          <div class="ns"><span class="step">1</span>Ethereum mainnet<small>the auction contract deployed on L1, next to the collections flooor wants — Base stays the cheap default</small></div>
+          <div class="ns"><span class="step">2</span>Nouns<small>a flooor for <a href="https://nouns.wtf" target="_blank">nouns.wtf</a>, running beside the DAO's own one-Noun-a-day auction</small></div>
+          <div class="ns"><span class="step">3</span>MAYC<small>the first Yuga-scale listing — a Mutant floor that prints daily instead of on every marketplace's whim</small></div>
+          <div class="ns"><span class="step">4</span>BAYC<small>10,000 Apes, the floor the whole market quotes, set once a day by an auction</small></div>
+          <div class="ns"><span class="step">5</span>CryptoPunks<small>the oldest floor onchain and the hardest to earn — the listing that proves the model</small></div>
         </div>
 
         <!-- ── V — vault layer ── -->
@@ -638,12 +646,21 @@
 
       <dt>What are the north stars?</dt>
       <dd>
+        <p>Five listings, in order of how hard they are to earn. None of them carries a date, and none of them is
+        promised — each one is a collection that has to want a daily floor, and a protocol big enough to be worth
+        saying yes to.</p>
         <ul>
-          <li><strong>everyday floor:</strong> every collection gets a real, honest price every single day</li>
-          <li><strong>zero-click yield:</strong> sign and claim with no popup, no staking, no lockup</li>
-          <li><strong>open listing:</strong> any collection can open a flooor without asking permission</li>
-          <li><strong>royalties to holders:</strong> 100% of the vault goes to the people who show up</li>
-          <li><strong>agent-native:</strong> the whole protocol reachable by an agent, not just a browser</li>
+          <li><strong>1. Ethereum mainnet:</strong> the auction contract deployed on L1, next to the collections
+          flooor wants. Base stays the cheap default; L1 is where the blue chips already sit.</li>
+          <li><strong>2. Nouns:</strong> a flooor for <a href="https://nouns.wtf" target="_blank">nouns.wtf</a>,
+          running beside the DAO's own one-Noun-a-day auction. The closest thing to flooor that already exists,
+          which makes it the natural first neighbour.</li>
+          <li><strong>3. MAYC:</strong> the first Yuga-scale listing — a Mutant floor that prints daily instead of
+          on whatever a marketplace feels like showing.</li>
+          <li><strong>4. BAYC:</strong> 10,000 Apes, the floor the whole market quotes. Setting it once a day by
+          auction rather than by the cheapest listing is the point.</li>
+          <li><strong>5. CryptoPunks:</strong> the oldest floor onchain and the hardest to earn. If Punks run a
+          flooor, the model is proven.</li>
         </ul>
       </dd>
 
