@@ -19,7 +19,7 @@ A work-in-progress draft roadmap for the [flooor](https://flooor.fun) protocol o
 
 ## Editing the map
 
-The map is a CSS grid: one column per stage (Cobalt, then the market-cap milestones), one row per layer (S surface on top, L listings below) with a month band between them.
+The map is a CSS grid: one column per stage (Cobalt, then the market-cap milestones), one row per layer (I improvements on top, L listings below) with a month band between them.
 Each box is a `div.box`, with `--headliner` (dark), `--offchain` (dashed), or `--shipped` (faint) modifiers.
 North stars and tasks live in the `.northstars` and `.tasks` blocks on the right, outside the timeline. Bump the revision date in the legend and in the header meta after a change.
 
