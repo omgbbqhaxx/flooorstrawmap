@@ -138,16 +138,8 @@
     .col-head.is-ns .name { color: #fff; }
     .col-head.is-ns .date { color: rgba(255, 255, 255, 0.55); }
 
-    /* ── Month band ── */
-    .month-head {
-      padding: 0.35rem 0.7rem;
-      border-bottom: 1px solid var(--hairline);
-      font-size: 0.625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--fg-dim);
-      align-self: end;
-    }
+    /* ── Month band — same treatment as the stage heads ── */
+    .col-head.is-month { align-self: end; }
 
     /* ── Row labels ── */
     .row-label {
@@ -708,12 +700,30 @@
 
         <!-- ── month band, between the two layers ── -->
         <div class="corner"></div>
-        <div class="month-head">September 2026</div>
-        <div class="month-head">November 2026</div>
-        <div class="month-head">February 2027</div>
-        <div class="month-head">June 2027</div>
-        <div class="month-head">January 2028</div>
-        <div class="month-head">March 2030</div>
+        <div class="col-head is-month">
+          <div class="name">September 2026</div>
+          <div class="date">earliest, if all goes right</div>
+        </div>
+        <div class="col-head is-month">
+          <div class="name">November 2026</div>
+          <div class="date">earliest, if all goes right</div>
+        </div>
+        <div class="col-head is-month">
+          <div class="name">February 2027</div>
+          <div class="date">earliest, if all goes right</div>
+        </div>
+        <div class="col-head is-month">
+          <div class="name">June 2027</div>
+          <div class="date">earliest, if all goes right</div>
+        </div>
+        <div class="col-head is-month">
+          <div class="name">January 2028</div>
+          <div class="date">earliest, if all goes right</div>
+        </div>
+        <div class="col-head is-month">
+          <div class="name">March 2030</div>
+          <div class="date">earliest, if all goes right</div>
+        </div>
 
         <!-- ── L — listings layer ── -->
         <div class="row-label row-label--l">
