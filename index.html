@@ -101,7 +101,7 @@
     /* ── Grid ── */
     .grid {
       display: grid;
-      grid-template-columns: 104px repeat(6, 232px) 264px;
+      grid-template-columns: 104px repeat(6, 232px);
       column-gap: 12px;
       row-gap: 14px;
       align-items: stretch;
@@ -268,21 +268,17 @@
     }
 
     /* ── Tasks ── */
-    .col-head.is-tasks {
+    .row-label--t {
       background: #1a1a1a;
-      border-color: #1a1a1a;
-      border-bottom-color: rgba(255, 255, 255, 0.28);
+      grid-column: 1;
+      grid-row: 6;
     }
-    .col-head.is-tasks .name { color: #fff; }
-    .col-head.is-tasks .date { color: rgba(255, 255, 255, 0.5); }
-
-    .tasks {
-      grid-column: 8;
-      grid-row: 2 / span 3;
+    .tasksband {
+      grid-column: 2 / span 6;
+      grid-row: 6;
       background: #1a1a1a;
       padding: 12px;
       display: flex;
-      flex-direction: column;
       gap: 10px;
     }
     .task {
@@ -503,10 +499,6 @@
           <div class="name">$1T+</div>
           <div class="date">unlocks at market cap</div>
         </div>
-        <div class="col-head is-tasks">
-          <div class="name">tasks</div>
-          <div class="date">open to anyone &middot; any time</div>
-        </div>
 
         <!-- ── S — surface layer ── -->
         <div class="row-label row-label--s">
@@ -541,40 +533,6 @@
           <div class="box"><span class="t">PQ agent wallets</span><span class="n">the spend permission that signs for you, under the new scheme</span></div>
           <div class="box"><span class="t">rocket cargo</span><span class="n">a physical lot won at auction, off the pad and anywhere on Earth inside an hour</span></div>
           <div class="box box--off"><span class="tag">offchain</span><span class="t">crypto review</span><span class="n">the whole stack re-audited against a quantum adversary</span></div>
-        </div>
-
-        <!-- tasks, spanning the layer rows -->
-        <div class="tasks">
-          <div class="task">
-            <span class="box-check">&#9633;</span>
-            <span class="task-t">bring 5 new signers</span>
-            <span class="task-n">five wallets that sign their first epoch and come back for a second</span>
-            <span class="task-r">reward &mdash; a sponsored day in your name</span>
-          </div>
-          <div class="task">
-            <span class="box-check">&#9633;</span>
-            <span class="task-t">sign 30 days straight</span>
-            <span class="task-n">a full month of epochs without missing the window once</span>
-            <span class="task-r">reward &mdash; first in line for the loyalty multiplier</span>
-          </div>
-          <div class="task">
-            <span class="box-check">&#9633;</span>
-            <span class="task-t">sponsor a day</span>
-            <span class="task-n">top up one day's vault and hand it to everyone who signs</span>
-            <span class="task-r">reward &mdash; your name on the board, that day, forever</span>
-          </div>
-          <div class="task">
-            <span class="box-check">&#9633;</span>
-            <span class="task-t">bring a collection</span>
-            <span class="task-n">find a collection that wants a daily floor and open its flooor</span>
-            <span class="task-r">reward &mdash; a cut of its first epochs</span>
-          </div>
-          <div class="task">
-            <span class="box-check">&#9633;</span>
-            <span class="task-t">bid on every clock</span>
-            <span class="task-n">one bid on every listed collection, inside a single epoch</span>
-            <span class="task-r">reward &mdash; the collector mark</span>
-          </div>
         </div>
 
         <!-- ── month band, between the two layers ── -->
@@ -620,6 +578,44 @@
           <div class="ns"><span class="step">3</span>MAYC<small>the first Yuga-scale listing — a Mutant floor that prints daily instead of on every marketplace's whim</small></div>
           <div class="ns"><span class="step">4</span>BAYC<small>10,000 Apes, the floor the whole market quotes, set once a day by an auction</small></div>
           <div class="ns"><span class="step">5</span>CryptoPunks<small>the oldest floor onchain and the hardest to earn — the listing that proves the model</small></div>
+        </div>
+
+        <!-- ── tasks, a band under the map ── -->
+        <div class="row-label row-label--t">
+          <div class="letter">T</div>
+          <div class="what">tasks</div>
+        </div>
+        <div class="tasksband">
+          <div class="task">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">bring 5 new signers</span>
+            <span class="task-n">five wallets that sign their first epoch and come back for a second</span>
+            <span class="task-r">reward &mdash; a sponsored day in your name</span>
+          </div>
+          <div class="task">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">sign 30 days straight</span>
+            <span class="task-n">a full month of epochs without missing the window once</span>
+            <span class="task-r">reward &mdash; first in line for the loyalty multiplier</span>
+          </div>
+          <div class="task">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">sponsor a day</span>
+            <span class="task-n">top up one day's vault and hand it to everyone who signs</span>
+            <span class="task-r">reward &mdash; your name on the board, that day, forever</span>
+          </div>
+          <div class="task">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">bring a collection</span>
+            <span class="task-n">find a collection that wants a daily floor and open its flooor</span>
+            <span class="task-r">reward &mdash; a cut of its first epochs</span>
+          </div>
+          <div class="task">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">bid on every clock</span>
+            <span class="task-n">one bid on every listed collection, inside a single epoch</span>
+            <span class="task-r">reward &mdash; the collector mark</span>
+          </div>
         </div>
       </div>
 
@@ -700,8 +696,8 @@
       <dt>What do the rows and colors represent?</dt>
       <dd>
         <p>Upgrades are grouped into two layers: listings (L) and surface (S). Dark boxes are headliners and
-        dashed boxes are offchain work. Two things sit outside the timeline: the north stars band (E — ethereum) running
-        under the map, and the tasks panel on the right.</p>
+        dashed boxes are offchain work. Two bands sit outside the timeline, under the map: the north stars
+        (E — ethereum), and the tasks (T).</p>
         <p>Stages run left to right, and an arrow marks a box that builds on the one to its left. Anything to
         the right of Cobalt is scope, not schedule.</p>
       </dd>
@@ -773,7 +769,7 @@
 
       <dt>What is the tasks column?</dt>
       <dd>
-        <p>The one column anyone can act on today. North stars are what the protocol owes you; tasks are what you
+        <p>The one band anyone can act on today. North stars are what the protocol owes you; tasks are what you
         can do without waiting for a release — bring signers, hold a streak, sponsor a day, bring a collection,
         bid across every clock. Each one carries what it earns.</p>
         <p>The current list is a draft, and the rewards are not live yet. If a task is worth doing but isn't up
