@@ -95,7 +95,6 @@
     /* ── Layer palettes ── */
     :root {
       --l-band:  #eaf2fb;  --l-line: #b7d1ec;  --l-ink: #1f4e79;  --l-chip: #2f6fb0;
-      --v-band:  #e9f4ea;  --v-line: #bcdcc0;  --v-ink: #2c6b3d;  --v-chip: #3d8c52;
       --s-band:  #fdf0da;  --s-line: #efd7a6;  --s-ink: #8a5a12;  --s-chip: #c08a2e;
     }
 
@@ -158,7 +157,6 @@
       color: rgba(255, 255, 255, 0.8);
     }
     .row-label--l { background: var(--l-chip); }
-    .row-label--v { background: var(--v-chip); }
     .row-label--s { background: var(--s-chip); }
 
     /* ── Cells ── */
@@ -170,7 +168,6 @@
       position: relative;
     }
     .cell--l { background: var(--l-band); }
-    .cell--v { background: var(--v-band); }
     .cell--s { background: var(--s-band); }
 
     /* ── Boxes ── */
@@ -184,7 +181,6 @@
       border-left: 4px solid var(--hairline);
     }
     .cell--l .box { border-color: var(--l-line); border-left-color: var(--l-chip); }
-    .cell--v .box { border-color: var(--v-line); border-left-color: var(--v-chip); }
     .cell--s .box { border-color: var(--s-line); border-left-color: var(--s-chip); }
 
     .box .t { display: block; font-weight: 500; }
@@ -200,7 +196,6 @@
     /* headliners — saturated layer color */
     .box--head { color: #fff; border-width: 1px; border-left-width: 4px; }
     .cell--l .box--head { background: var(--l-ink); border-color: var(--l-ink); border-left-color: #0f2f4d; }
-    .cell--v .box--head { background: var(--v-ink); border-color: var(--v-ink); border-left-color: #15381f; }
     .cell--s .box--head { background: var(--s-ink); border-color: var(--s-ink); border-left-color: #56370a; }
     .box--head .n { color: rgba(255, 255, 255, 0.72); }
     .box--head .tag { color: var(--gold); }
@@ -233,7 +228,7 @@
     /* ── North stars ── */
     .northstars {
       grid-column: 8;
-      grid-row: 2 / span 3;
+      grid-row: 2 / span 2;
       background: #111;
       padding: 12px;
       display: flex;
@@ -279,7 +274,7 @@
 
     .tasks {
       grid-column: 9;
-      grid-row: 2 / span 3;
+      grid-row: 2 / span 2;
       background: #1a1a1a;
       padding: 12px;
       display: flex;
@@ -657,7 +652,7 @@
           <div class="box"><span class="t">eternal listings</span><span class="n">a collection's floor survives a signature-scheme migration untouched</span></div>
         </div>
 
-        <!-- north stars, spanning the three layer rows -->
+        <!-- north stars, spanning the layer rows -->
         <div class="northstars">
           <div class="ns"><span class="step">1</span>Ethereum mainnet<small>the auction contract deployed on L1, next to the collections flooor wants — Base stays the cheap default</small></div>
           <div class="ns"><span class="step">2</span>Nouns<small>a flooor for <a href="https://nouns.wtf" target="_blank">nouns.wtf</a>, running beside the DAO's own one-Noun-a-day auction</small></div>
@@ -666,7 +661,7 @@
           <div class="ns"><span class="step">5</span>CryptoPunks<small>the oldest floor onchain and the hardest to earn — the listing that proves the model</small></div>
         </div>
 
-        <!-- tasks, spanning the three layer rows -->
+        <!-- tasks, spanning the layer rows -->
         <div class="tasks">
           <div class="task">
             <span class="box-check">&#9633;</span>
@@ -698,42 +693,6 @@
             <span class="task-n">one bid on every listed collection, inside a single epoch</span>
             <span class="task-r">reward &mdash; the collector mark</span>
           </div>
-        </div>
-
-        <!-- ── V — vault layer, filled by sponsors ── -->
-        <div class="row-label row-label--v">
-          <div class="letter">V</div>
-          <div class="what">vault &middot; sponsors</div>
-        </div>
-        <div class="cell cell--v">
-          <div class="box box--head"><span class="tag">headliner</span><span class="t">sponsored days</span><span class="n">anyone can top up a chosen day's vault; the day shows who funded it and how much</span></div>
-          <div class="box"><span class="t">sponsor board</span><span class="n">which day is taken, by whom, for how much — read straight from the contract</span></div>
-          <div class="box"><span class="t">weighted split</span><span class="n">share scales with signed value, not headcount</span></div>
-        </div>
-        <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">recurring sponsors</span><span class="n">book a weekday for a month in one transaction, cancel any time</span></div>
-          <div class="box"><span class="t">streaming accrual</span><span class="n">the sponsored pool grows per block, not per epoch close</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">sponsor page</span><span class="n">who funded which day, and what it paid each signer</span></div>
-        </div>
-        <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">sponsor slot auction</span><span class="n">the busiest days go to the highest sponsor bid — the bid lands in the vault</span></div>
-          <div class="box"><span class="t">loyalty multiplier</span><span class="n">uninterrupted sign streaks earn a larger share</span></div>
-          <div class="box"><span class="t">split routing</span><span class="n">creators, holders and treasury set per collection</span></div>
-        </div>
-        <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">vault governance</span><span class="n">holders vote the royalty split and the sponsor terms of their collection</span></div>
-          <div class="box"><span class="t">matched days</span><span class="n">the protocol matches a sponsor's top-up out of its own fee</span></div>
-          <div class="box"><span class="t">protocol fee switch</span><span class="n">0.5% redirected by holder vote</span></div>
-        </div>
-        <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">endowment vault</span><span class="n">the pool is deep enough to pay a daily yield on its own float — sponsors ride on top</span></div>
-          <div class="box"><span class="t">sponsor market</span><span class="n">a booked day can be resold before it arrives</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">sponsor desk</span><span class="n">brands and treasuries booking whole seasons</span></div>
-        </div>
-        <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">quantum-safe vault</span><span class="n">no ECDSA anywhere in the sign and claim path — a century of royalties, not a decade</span></div>
-          <div class="box"><span class="t">migration escrow</span><span class="n">the vault keeps paying while holders rotate to post-quantum keys</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">rotation drive</span><span class="n">walking every signer through the key change before it is urgent</span></div>
         </div>
 
         <!-- ── S — surface layer ── -->
@@ -846,9 +805,9 @@
 
       <dt>What do the rows and colors represent?</dt>
       <dd>
-        <p>Upgrades are grouped into three layers: listings (L), vault and sponsors (V), and surface (S). Dark
-        boxes are headliners and dashed boxes are offchain work. The two panels on the right stand outside the
-        timeline: north stars, and tasks.</p>
+        <p>Upgrades are grouped into two layers: listings (L) and surface (S). Dark boxes are headliners and
+        dashed boxes are offchain work. The two panels on the right stand outside the timeline: north stars, and
+        tasks.</p>
         <p>Stages run left to right, and an arrow marks a box that builds on the one to its left. Anything to
         the right of Cobalt is scope, not schedule.</p>
       </dd>
@@ -861,9 +820,9 @@
 
       <dt>Who fills the daily vault?</dt>
       <dd>
-        <p>Today the vault is fed by the 5% royalty on every sale, and split among everyone who signs that day.
-        From Cobalt on, anyone can also <strong>sponsor a day</strong> — top up a chosen day's vault directly, with
-        the day showing who funded it and for how much. The board above the map is that schedule.</p>
+        <p>The vault is fed by the 5% royalty on every sale, and split among everyone who signs that day.
+        Anyone can also <strong>sponsor a day</strong> — top up a chosen day's vault directly, with the day showing
+        who funded it and for how much. The board at the top of the page is that schedule.</p>
         <p>The numbers on the board today are sample data. No sponsor has signed up yet, and the slots are there to
         show the shape of the thing.</p>
       </dd>

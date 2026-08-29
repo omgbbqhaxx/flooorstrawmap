@@ -19,7 +19,7 @@ A work-in-progress draft roadmap for the [flooor](https://flooor.fun) protocol o
 
 ## Editing the map
 
-The map is a CSS grid: one column per stage (Cobalt, then the market-cap milestones), one row per layer (L listings, V vault and sponsors, S surface).
+The map is a CSS grid: one column per stage (Cobalt, then the market-cap milestones), one row per layer (L listings, S surface).
 Each box is a `div.box`, with `--headliner` (dark), `--offchain` (dashed), or `--shipped` (faint) modifiers.
 North stars and tasks live in the `.northstars` and `.tasks` blocks on the right, outside the timeline, and the sponsor schedule above the map is the `.board` section — its numbers are sample data until real sponsors sign up. Bump the revision date in the legend and in the header meta after a change.
 
