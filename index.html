@@ -102,7 +102,7 @@
     /* ── Grid ── */
     .grid {
       display: grid;
-      grid-template-columns: 104px repeat(5, 236px) 276px;
+      grid-template-columns: 104px repeat(4, 244px) 272px 272px;
       column-gap: 12px;
       row-gap: 14px;
       align-items: stretch;
@@ -133,12 +133,6 @@
     }
     .col-head.is-next .name { color: #fff; }
     .col-head.is-next .date { color: var(--gold); }
-    .col-head.is-past {
-      background: transparent;
-      border-style: dashed;
-      border-bottom: 3px solid var(--hairline);
-    }
-    .col-head.is-past .name, .col-head.is-past .date { color: var(--faint); }
     .col-head.is-cap { border-bottom-color: var(--gold); }
     .col-head.is-cap .name { color: var(--gold); font-size: 1.25rem; }
     .col-head.is-ns { background: #000; border-color: #000; border-bottom-color: #000; }
@@ -216,9 +210,6 @@
     .box--off .t { font-weight: 400; }
     .box--off .tag { color: var(--fg-dim); }
 
-    /* shipped — faded */
-    .box--shipped { background: rgba(255, 255, 255, 0.45); color: var(--fg-dim); }
-    .box--shipped .t { font-weight: 400; }
 
     /* dependency arrow into the previous column */
     .box--dep::before {
@@ -241,7 +232,7 @@
 
     /* ── North stars ── */
     .northstars {
-      grid-column: 7;
+      grid-column: 6;
       grid-row: 2 / span 3;
       background: #111;
       padding: 12px;
@@ -275,6 +266,63 @@
       margin-top: 3px;
       font-size: 0.6875rem;
       color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ── Tasks ── */
+    .col-head.is-tasks {
+      background: var(--gold);
+      border-color: var(--gold);
+      border-bottom-color: #1a1a1a;
+    }
+    .col-head.is-tasks .name { color: #1a1a1a; }
+    .col-head.is-tasks .date { color: rgba(26, 26, 26, 0.62); }
+
+    .tasks {
+      grid-column: 7;
+      grid-row: 2 / span 3;
+      background: #1a1a1a;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .task {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #232020;
+      border-left: 4px solid var(--gold);
+      padding: 0.55rem 0.7rem 0.55rem 2.1rem;
+      color: #fff;
+      font-size: 0.8125rem;
+      line-height: 1.4;
+    }
+    .task--l { border-left-color: var(--l-chip); }
+    .task--v { border-left-color: var(--v-chip); }
+    .task--s { border-left-color: var(--s-chip); }
+    .task .box-check {
+      position: absolute;
+      left: 0.7rem;
+      top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--gold);
+    }
+    .task-t { display: block; }
+    .task-n {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.6875rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .task-r {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
     }
 
     /* ── Legend ── */
@@ -500,10 +548,6 @@
 
         <!-- ── Column heads ── -->
         <div class="corner"></div>
-        <div class="col-head is-past">
-          <div class="name">v3</div>
-          <div class="date">shipped &middot; live today</div>
-        </div>
         <div class="col-head is-next">
           <div class="name">Cobalt</div>
           <div class="date">stage 1 &middot; September 2026</div>
@@ -524,6 +568,10 @@
           <div class="name">north stars</div>
           <div class="date">no date &middot; in order</div>
         </div>
+        <div class="col-head is-tasks">
+          <div class="name">tasks</div>
+          <div class="date">open to anyone &middot; any time</div>
+        </div>
 
         <!-- ── L — listings layer ── -->
         <div class="row-label row-label--l">
@@ -531,12 +579,7 @@
           <div class="what">listings</div>
         </div>
         <div class="cell cell--l">
-          <div class="box box--shipped"><span class="t">continuous daily auction</span><span class="n">one epoch per day, highest bid wins</span></div>
-          <div class="box box--shipped"><span class="t">sellToHighest settlement</span><span class="n">99.5% to holder, 0.5% protocol</span></div>
-          <div class="box box--shipped"><span class="t">min-bid floor</span><span class="n">next bid computed onchain</span></div>
-        </div>
-        <div class="cell cell--l">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">parallel epochs</span><span class="n">every listed collection runs its own auction clock</span></div>
+          <div class="box box--head"><span class="tag">headliner</span><span class="t">parallel epochs</span><span class="n">every listed collection runs its own auction clock</span></div>
           <div class="box"><span class="t">guarded sign &amp; claim</span><span class="n">pre-flight simulation, decoded reverts</span></div>
           <div class="box"><span class="t">anti-snipe extension</span><span class="n">late bid pushes settlement by a few minutes</span></div>
         </div>
@@ -564,18 +607,47 @@
           <div class="ns"><span class="step">5</span>CryptoPunks<small>the oldest floor onchain and the hardest to earn — the listing that proves the model</small></div>
         </div>
 
+        <!-- tasks, spanning the three layer rows -->
+        <div class="tasks">
+          <div class="task task--l">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">bring 5 new signers</span>
+            <span class="task-n">five wallets that sign their first epoch and come back for a second</span>
+            <span class="task-r">reward &mdash; a sponsored day in your name</span>
+          </div>
+          <div class="task task--v">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">sign 30 days straight</span>
+            <span class="task-n">a full month of epochs without missing the window once</span>
+            <span class="task-r">reward &mdash; first in line for the loyalty multiplier</span>
+          </div>
+          <div class="task task--s">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">sponsor a day</span>
+            <span class="task-n">top up one day's vault and hand it to everyone who signs</span>
+            <span class="task-r">reward &mdash; your name on the board, that day, forever</span>
+          </div>
+          <div class="task task--l">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">bring a collection</span>
+            <span class="task-n">find a collection that wants a daily floor and open its flooor</span>
+            <span class="task-r">reward &mdash; a cut of its first epochs</span>
+          </div>
+          <div class="task task--v">
+            <span class="box-check">&#9633;</span>
+            <span class="task-t">bid on every clock</span>
+            <span class="task-n">one bid on every listed collection, inside a single epoch</span>
+            <span class="task-r">reward &mdash; the collector mark</span>
+          </div>
+        </div>
+
         <!-- ── V — vault layer, filled by sponsors ── -->
         <div class="row-label row-label--v">
           <div class="letter">V</div>
           <div class="what">vault &middot; sponsors</div>
         </div>
         <div class="cell cell--v">
-          <div class="box box--shipped"><span class="t">5% royalty vault</span><span class="n">every sale tops up the daily pool</span></div>
-          <div class="box box--shipped"><span class="t">16h sign / 8h claim</span><span class="n">even split among signers</span></div>
-          <div class="box box--shipped"><span class="t">total value signed (TVS)</span><span class="n">live participation metric</span></div>
-        </div>
-        <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">sponsored days</span><span class="n">anyone can top up a chosen day's vault; the day shows who funded it and how much</span></div>
+          <div class="box box--head"><span class="tag">headliner</span><span class="t">sponsored days</span><span class="n">anyone can top up a chosen day's vault; the day shows who funded it and how much</span></div>
           <div class="box"><span class="t">sponsor board</span><span class="n">which day is taken, by whom, for how much — read straight from the contract</span></div>
           <div class="box"><span class="t">weighted split</span><span class="n">share scales with signed value, not headcount</span></div>
         </div>
@@ -601,13 +673,8 @@
           <div class="what">surface</div>
         </div>
         <div class="cell cell--s">
-          <div class="box box--shipped"><span class="t">flooor.fun app</span><span class="n">eight collection pages, live auction state</span></div>
-          <div class="box box--shipped"><span class="t">Base Account connect</span><span class="n">bid, sign, claim from the browser</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">MCP plugin (beta)</span><span class="n">auction reads and writes from an agent</span></div>
-        </div>
-        <div class="cell cell--s">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">agent wallets</span><span class="n">scoped spend permission signs every epoch for you</span></div>
-          <div class="box box--off box--dep"><span class="tag">offchain</span><span class="t">MCP plugin GA</span><span class="n">the flooor plugin ships stable</span></div>
+          <div class="box box--head"><span class="tag">headliner</span><span class="t">agent wallets</span><span class="n">scoped spend permission signs every epoch for you</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">MCP plugin GA</span><span class="n">the flooor plugin ships stable</span></div>
           <div class="box box--off"><span class="tag">offchain</span><span class="t">sign-phase alerts</span><span class="n">push before the window closes</span></div>
         </div>
         <div class="cell cell--s">
@@ -739,8 +806,8 @@
 
       <dt>What do the columns represent?</dt>
       <dd>
-        <p>Stages, not dates. The first column is what is live today. Cobalt is stage 1 and the only column with a
-        calendar date on it, because it is already being built.</p>
+        <p>Stages, not dates. Cobalt is stage 1 and the only column with a calendar date on it, because it is
+        already being built. What is live today isn't on the map — the map is what comes next.</p>
         <p>Everything after Cobalt is gated on protocol market cap rather than a quarter: the $5M, $10M and $100M
         columns unlock when flooor reaches that market cap. Each one is a bigger surface to pay for and a bigger
         vault to defend, so the scope inside it is sized to what the protocol can carry at that point.</p>
@@ -749,8 +816,8 @@
       <dt>What do the rows and colors represent?</dt>
       <dd>
         <p>Upgrades are grouped into three layers: listings (L), vault and sponsors (V), and surface (S). Dark
-        boxes are headliners, dashed boxes are offchain work, faint boxes have already shipped, and the black boxes
-        on the right are north stars — listings with no date attached.</p>
+        boxes are headliners and dashed boxes are offchain work. The two panels on the right stand outside the
+        timeline: north stars, and tasks.</p>
         <p>Stages run left to right, and an arrow marks a box that builds on the one to its left. Anything to
         the right of Cobalt is scope, not schedule.</p>
       </dd>
@@ -807,6 +874,15 @@
           <li>It is a work in progress. Scope moves between releases, and items get dropped when they turn out not to matter.</li>
         </ol>
         <p>The strawmap is not a prediction. It is one coherent path among many.</p>
+      </dd>
+
+      <dt>What is the tasks column?</dt>
+      <dd>
+        <p>The one column anyone can act on today. North stars are what the protocol owes you; tasks are what you
+        can do without waiting for a release — bring signers, hold a streak, sponsor a day, bring a collection,
+        bid across every clock. Each one carries what it earns.</p>
+        <p>The current list is a draft, and the rewards are not live yet. If a task is worth doing but isn't up
+        there, say so and it goes up.</p>
       </dd>
 
       <dt>Will it change?</dt>
