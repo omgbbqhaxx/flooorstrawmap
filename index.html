@@ -94,7 +94,7 @@
 
     /* ── Layer palettes ── */
     :root {
-      --a-band:  #eaf2fb;  --a-line: #b7d1ec;  --a-ink: #1f4e79;  --a-chip: #2f6fb0;
+      --l-band:  #eaf2fb;  --l-line: #b7d1ec;  --l-ink: #1f4e79;  --l-chip: #2f6fb0;
       --v-band:  #e9f4ea;  --v-line: #bcdcc0;  --v-ink: #2c6b3d;  --v-chip: #3d8c52;
       --s-band:  #fdf0da;  --s-line: #efd7a6;  --s-ink: #8a5a12;  --s-chip: #c08a2e;
     }
@@ -163,7 +163,7 @@
       letter-spacing: 0.14em;
       color: rgba(255, 255, 255, 0.8);
     }
-    .row-label--a { background: var(--a-chip); }
+    .row-label--l { background: var(--l-chip); }
     .row-label--v { background: var(--v-chip); }
     .row-label--s { background: var(--s-chip); }
 
@@ -175,7 +175,7 @@
       padding: 10px;
       position: relative;
     }
-    .cell--a { background: var(--a-band); }
+    .cell--l { background: var(--l-band); }
     .cell--v { background: var(--v-band); }
     .cell--s { background: var(--s-band); }
 
@@ -189,7 +189,7 @@
       border: 1px solid var(--hairline);
       border-left: 4px solid var(--hairline);
     }
-    .cell--a .box { border-color: var(--a-line); border-left-color: var(--a-chip); }
+    .cell--l .box { border-color: var(--l-line); border-left-color: var(--l-chip); }
     .cell--v .box { border-color: var(--v-line); border-left-color: var(--v-chip); }
     .cell--s .box { border-color: var(--s-line); border-left-color: var(--s-chip); }
 
@@ -205,7 +205,7 @@
 
     /* headliners — saturated layer color */
     .box--head { color: #fff; border-width: 1px; border-left-width: 4px; }
-    .cell--a .box--head { background: var(--a-ink); border-color: var(--a-ink); border-left-color: #0f2f4d; }
+    .cell--l .box--head { background: var(--l-ink); border-color: var(--l-ink); border-left-color: #0f2f4d; }
     .cell--v .box--head { background: var(--v-ink); border-color: var(--v-ink); border-left-color: #15381f; }
     .cell--s .box--head { background: var(--s-ink); border-color: var(--s-ink); border-left-color: #56370a; }
     .box--head .n { color: rgba(255, 255, 255, 0.72); }
@@ -294,15 +294,81 @@
     .legend .key { display: inline-flex; align-items: center; gap: 0.45rem; }
     .swatch {
       width: 22px; height: 12px;
-      border: 1px solid var(--a-line);
-      border-left: 3px solid var(--a-chip);
+      border: 1px solid var(--l-line);
+      border-left: 3px solid var(--l-chip);
       background: #fff;
     }
-    .swatch--head { background: var(--a-ink); border-color: var(--a-ink); border-left-color: #0f2f4d; }
+    .swatch--head { background: var(--l-ink); border-color: var(--l-ink); border-left-color: #0f2f4d; }
     .swatch--off { background: transparent; border-style: dashed; }
     .swatch--ns { background: #000; border-color: #000; border-left-color: var(--gold); }
     .swatch--arrow { border: 0; background: transparent; width: 22px; text-align: center; }
     .legend .rev { margin-left: auto; color: var(--faint); }
+
+    /* ── Sponsor board ── */
+    .board {
+      margin-top: 1.75rem;
+      max-width: 1620px;
+      border: 1px solid var(--v-line);
+      border-left: 4px solid var(--v-chip);
+      background: var(--v-band);
+      padding: 0.9rem 1rem 1rem;
+    }
+    .board-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .board-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--v-ink);
+      margin: 0;
+    }
+    .board-note { font-size: 0.6875rem; color: var(--fg-dim); }
+    .board-note strong { color: var(--v-ink); }
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+    .day {
+      background: #fff;
+      border: 1px solid var(--v-line);
+      border-top: 3px solid var(--v-chip);
+      padding: 0.5rem 0.6rem;
+    }
+    .day-date {
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg-dim);
+    }
+    .day-who { font-size: 0.8125rem; margin-top: 4px; }
+    .day-amt { font-size: 0.75rem; color: var(--v-ink); margin-top: 2px; }
+    .day--open {
+      background: transparent;
+      border-style: dashed;
+      border-top-style: dashed;
+      border-top-color: var(--v-line);
+    }
+    .day--open .day-who, .day--open .day-amt { color: var(--faint); }
+    .board-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+      font-size: 0.6875rem;
+      color: var(--fg-dim);
+    }
+    .board-foot strong { color: var(--v-ink); }
+
+    @media (max-width: 900px) {
+      .board-grid { grid-template-columns: repeat(3, 1fr); }
+    }
 
     /* ── Zoom ── */
     .zoom {
@@ -459,32 +525,32 @@
           <div class="date">no date &middot; in order</div>
         </div>
 
-        <!-- ── A — auction layer ── -->
-        <div class="row-label row-label--a">
-          <div class="letter">A</div>
-          <div class="what">auction</div>
+        <!-- ── L — listings layer ── -->
+        <div class="row-label row-label--l">
+          <div class="letter">L</div>
+          <div class="what">listings</div>
         </div>
-        <div class="cell cell--a">
+        <div class="cell cell--l">
           <div class="box box--shipped"><span class="t">continuous daily auction</span><span class="n">one epoch per day, highest bid wins</span></div>
           <div class="box box--shipped"><span class="t">sellToHighest settlement</span><span class="n">99.5% to holder, 0.5% protocol</span></div>
           <div class="box box--shipped"><span class="t">min-bid floor</span><span class="n">next bid computed onchain</span></div>
         </div>
-        <div class="cell cell--a">
+        <div class="cell cell--l">
           <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">parallel epochs</span><span class="n">every listed collection runs its own auction clock</span></div>
           <div class="box"><span class="t">guarded sign &amp; claim</span><span class="n">pre-flight simulation, decoded reverts</span></div>
           <div class="box"><span class="t">anti-snipe extension</span><span class="n">late bid pushes settlement by a few minutes</span></div>
         </div>
-        <div class="cell cell--a">
+        <div class="cell cell--l">
           <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">permissionless listing</span><span class="n">any Base collection opens its own flooor</span></div>
           <div class="box"><span class="t">bid escrow &amp; auto-refund</span><span class="n">outbid funds return in the same tx</span></div>
           <div class="box box--off"><span class="tag">offchain</span><span class="t">listing review queue</span><span class="n">spam and copymint filtering</span></div>
         </div>
-        <div class="cell cell--a">
+        <div class="cell cell--l">
           <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">basket auctions</span><span class="n">bid on a set, settle as one lot</span></div>
           <div class="box"><span class="t">flooor index</span><span class="n">cross-collection floor print, published onchain</span></div>
           <div class="box"><span class="t">bid delegation</span><span class="n">bid on behalf of a vault or a DAO</span></div>
         </div>
-        <div class="cell cell--a">
+        <div class="cell cell--l">
           <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">multi-chain flooor</span><span class="n">same auction contract beyond Base</span></div>
           <div class="box"><span class="t">shared settlement</span><span class="n">one epoch clock across deployments</span></div>
         </div>
@@ -498,10 +564,10 @@
           <div class="ns"><span class="step">5</span>CryptoPunks<small>the oldest floor onchain and the hardest to earn — the listing that proves the model</small></div>
         </div>
 
-        <!-- ── V — vault layer ── -->
+        <!-- ── V — vault layer, filled by sponsors ── -->
         <div class="row-label row-label--v">
           <div class="letter">V</div>
-          <div class="what">vault</div>
+          <div class="what">vault &middot; sponsors</div>
         </div>
         <div class="cell cell--v">
           <div class="box box--shipped"><span class="t">5% royalty vault</span><span class="n">every sale tops up the daily pool</span></div>
@@ -509,21 +575,23 @@
           <div class="box box--shipped"><span class="t">total value signed (TVS)</span><span class="n">live participation metric</span></div>
         </div>
         <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">weighted split</span><span class="n">share scales with signed value, not headcount</span></div>
-          <div class="box"><span class="t">claim-all</span><span class="n">every collection, one transaction</span></div>
-          <div class="box"><span class="t">unclaimed rollover</span><span class="n">leftovers roll into the next epoch</span></div>
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">sponsored days</span><span class="n">anyone can top up a chosen day's vault; the day shows who funded it and how much</span></div>
+          <div class="box"><span class="t">sponsor board</span><span class="n">which day is taken, by whom, for how much — read straight from the contract</span></div>
+          <div class="box"><span class="t">weighted split</span><span class="n">share scales with signed value, not headcount</span></div>
         </div>
         <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">streaming accrual</span><span class="n">vault grows per block, not per epoch close</span></div>
-          <div class="box"><span class="t">auto-compound</span><span class="n">claim straight back into a bid</span></div>
-          <div class="box box--off"><span class="tag">offchain</span><span class="t">vault analytics</span><span class="n">yield history per collection</span></div>
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">recurring sponsors</span><span class="n">book a weekday for a month in one transaction, cancel any time</span></div>
+          <div class="box"><span class="t">streaming accrual</span><span class="n">the sponsored pool grows per block, not per epoch close</span></div>
+          <div class="box box--off"><span class="tag">offchain</span><span class="t">sponsor page</span><span class="n">who funded which day, and what it paid each signer</span></div>
         </div>
         <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">loyalty multiplier</span><span class="n">uninterrupted sign streaks earn a larger share</span></div>
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">sponsor slot auction</span><span class="n">the busiest days go to the highest sponsor bid — the bid lands in the vault</span></div>
+          <div class="box"><span class="t">loyalty multiplier</span><span class="n">uninterrupted sign streaks earn a larger share</span></div>
           <div class="box"><span class="t">split routing</span><span class="n">creators, holders and treasury set per collection</span></div>
         </div>
         <div class="cell cell--v">
-          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">vault governance</span><span class="n">holders vote the royalty split of their collection</span></div>
+          <div class="box box--head box--dep"><span class="tag">headliner</span><span class="t">vault governance</span><span class="n">holders vote the royalty split and the sponsor terms of their collection</span></div>
+          <div class="box"><span class="t">matched days</span><span class="n">the protocol matches a sponsor's top-up out of its own fee</span></div>
           <div class="box"><span class="t">protocol fee switch</span><span class="n">0.5% redirected by holder vote</span></div>
         </div>
 
@@ -557,6 +625,55 @@
         </div>
 
       </div>
+
+      <!-- Sponsor board (sample data) -->
+      <section class="board">
+        <div class="board-head">
+          <h2 class="board-title">daily vault sponsors</h2>
+          <span class="board-note">who fills the pool, which day, how much · <strong>sample data</strong> — no sponsor has signed up yet</span>
+        </div>
+        <div class="board-grid">
+          <div class="day">
+            <div class="day-date">Mon 1 Sep</div>
+            <div class="day-who">alpha.eth</div>
+            <div class="day-amt">0.40 ETH</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Tue 2 Sep</div>
+            <div class="day-who">bravo.eth</div>
+            <div class="day-amt">0.25 ETH</div>
+          </div>
+          <div class="day day--open">
+            <div class="day-date">Wed 3 Sep</div>
+            <div class="day-who">slot open</div>
+            <div class="day-amt">—</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Thu 4 Sep</div>
+            <div class="day-who">charlie.eth</div>
+            <div class="day-amt">0.60 ETH</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Fri 5 Sep</div>
+            <div class="day-who">delta-dao.eth</div>
+            <div class="day-amt">1.00 ETH</div>
+          </div>
+          <div class="day day--open">
+            <div class="day-date">Sat 6 Sep</div>
+            <div class="day-who">slot open</div>
+            <div class="day-amt">—</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Sun 7 Sep</div>
+            <div class="day-who">echo.eth</div>
+            <div class="day-amt">0.75 ETH</div>
+          </div>
+        </div>
+        <div class="board-foot">
+          <span>sponsored this week <strong>3.00 ETH</strong> on top of the 5% royalty flow</span>
+          <span>2 of 7 days still open</span>
+        </div>
+      </section>
 
       <!-- Legend -->
       <div class="legend">
@@ -631,9 +748,9 @@
 
       <dt>What do the rows and colors represent?</dt>
       <dd>
-        <p>Upgrades are grouped into three layers: auction (A), vault (V), and surface (S). Dark boxes are
-        headliners, dashed boxes are offchain work, faint boxes have already shipped, and the black boxes on the
-        right are north stars — directions with no date attached.</p>
+        <p>Upgrades are grouped into three layers: listings (L), vault and sponsors (V), and surface (S). Dark
+        boxes are headliners, dashed boxes are offchain work, faint boxes have already shipped, and the black boxes
+        on the right are north stars — listings with no date attached.</p>
         <p>Stages run left to right, and an arrow marks a box that builds on the one to its left. Anything to
         the right of Cobalt is scope, not schedule.</p>
       </dd>
@@ -642,6 +759,15 @@
       <dd>
         The one upgrade per layer that a release is actually about. Capping it at one keeps the cadence honest:
         a release ships when its three headliners are done, and smaller items ride along if they are ready.
+      </dd>
+
+      <dt>Who fills the daily vault?</dt>
+      <dd>
+        <p>Today the vault is fed by the 5% royalty on every sale, and split among everyone who signs that day.
+        From Cobalt on, anyone can also <strong>sponsor a day</strong> — top up a chosen day's vault directly, with
+        the day showing who funded it and for how much. The board under the map is that schedule.</p>
+        <p>The numbers on the board today are sample data. No sponsor has signed up yet, and the slots are there to
+        show the shape of the thing.</p>
       </dd>
 
       <dt>What are the north stars?</dt>
