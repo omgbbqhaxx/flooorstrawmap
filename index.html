@@ -351,11 +351,8 @@
 
     /* ── Sponsor board ── */
     .board {
-      margin-top: 1.75rem;
-      max-width: 1620px;
-      border: 1px solid var(--v-line);
-      border-left: 4px solid var(--v-chip);
-      background: var(--v-band);
+      margin-bottom: 1.5rem;
+      background: #1a1a1a;
       padding: 0.9rem 1rem 1rem;
     }
     .board-head {
@@ -369,37 +366,35 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--v-ink);
+      color: #fff;
       margin: 0;
     }
-    .board-note { font-size: 0.6875rem; color: var(--fg-dim); }
-    .board-note strong { color: var(--v-ink); }
+    .board-note { font-size: 0.6875rem; color: rgba(255, 255, 255, 0.5); }
+    .board-note strong { color: rgba(255, 255, 255, 0.8); }
     .board-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 8px;
     }
     .day {
-      background: #fff;
-      border: 1px solid var(--v-line);
-      border-top: 3px solid var(--v-chip);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       padding: 0.5rem 0.6rem;
+      color: #fff;
     }
     .day-date {
       font-size: 0.625rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--fg-dim);
+      color: rgba(255, 255, 255, 0.5);
     }
     .day-who { font-size: 0.8125rem; margin-top: 4px; }
-    .day-amt { font-size: 0.75rem; color: var(--v-ink); margin-top: 2px; }
+    .day-amt { font-size: 0.75rem; color: rgba(255, 255, 255, 0.72); margin-top: 2px; }
     .day--open {
       background: transparent;
       border-style: dashed;
-      border-top-style: dashed;
-      border-top-color: var(--v-line);
     }
-    .day--open .day-who, .day--open .day-amt { color: var(--faint); }
+    .day--open .day-who, .day--open .day-amt { color: rgba(255, 255, 255, 0.38); }
     .board-foot {
       display: flex;
       justify-content: space-between;
@@ -407,9 +402,9 @@
       flex-wrap: wrap;
       margin-top: 0.75rem;
       font-size: 0.6875rem;
-      color: var(--fg-dim);
+      color: rgba(255, 255, 255, 0.5);
     }
-    .board-foot strong { color: var(--v-ink); }
+    .board-foot strong { color: #fff; }
 
     @media (max-width: 900px) {
       .board-grid { grid-template-columns: repeat(3, 1fr); }
@@ -541,6 +536,55 @@
   <!-- Full-screen map -->
   <div class="map" id="map">
     <div class="map-inner" id="mapInner">
+      <!-- Sponsor board (sample data) -->
+      <section class="board">
+        <div class="board-head">
+          <h2 class="board-title">daily vault sponsors</h2>
+          <span class="board-note">who fills the pool, which day, how much · <strong>sample data</strong> — no sponsor has signed up yet</span>
+        </div>
+        <div class="board-grid">
+          <div class="day">
+            <div class="day-date">Mon 1 Sep</div>
+            <div class="day-who">alpha.eth</div>
+            <div class="day-amt">0.40 ETH</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Tue 2 Sep</div>
+            <div class="day-who">bravo.eth</div>
+            <div class="day-amt">0.25 ETH</div>
+          </div>
+          <div class="day day--open">
+            <div class="day-date">Wed 3 Sep</div>
+            <div class="day-who">slot open</div>
+            <div class="day-amt">—</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Thu 4 Sep</div>
+            <div class="day-who">charlie.eth</div>
+            <div class="day-amt">0.60 ETH</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Fri 5 Sep</div>
+            <div class="day-who">delta-dao.eth</div>
+            <div class="day-amt">1.00 ETH</div>
+          </div>
+          <div class="day day--open">
+            <div class="day-date">Sat 6 Sep</div>
+            <div class="day-who">slot open</div>
+            <div class="day-amt">—</div>
+          </div>
+          <div class="day">
+            <div class="day-date">Sun 7 Sep</div>
+            <div class="day-who">echo.eth</div>
+            <div class="day-amt">0.75 ETH</div>
+          </div>
+        </div>
+        <div class="board-foot">
+          <span>sponsored this week <strong>3.00 ETH</strong> on top of the 5% royalty flow</span>
+          <span>2 of 7 days still open</span>
+        </div>
+      </section>
+
       <div class="grid">
 
         <!-- ── Column heads ── -->
@@ -690,55 +734,6 @@
 
       </div>
 
-      <!-- Sponsor board (sample data) -->
-      <section class="board">
-        <div class="board-head">
-          <h2 class="board-title">daily vault sponsors</h2>
-          <span class="board-note">who fills the pool, which day, how much · <strong>sample data</strong> — no sponsor has signed up yet</span>
-        </div>
-        <div class="board-grid">
-          <div class="day">
-            <div class="day-date">Mon 1 Sep</div>
-            <div class="day-who">alpha.eth</div>
-            <div class="day-amt">0.40 ETH</div>
-          </div>
-          <div class="day">
-            <div class="day-date">Tue 2 Sep</div>
-            <div class="day-who">bravo.eth</div>
-            <div class="day-amt">0.25 ETH</div>
-          </div>
-          <div class="day day--open">
-            <div class="day-date">Wed 3 Sep</div>
-            <div class="day-who">slot open</div>
-            <div class="day-amt">—</div>
-          </div>
-          <div class="day">
-            <div class="day-date">Thu 4 Sep</div>
-            <div class="day-who">charlie.eth</div>
-            <div class="day-amt">0.60 ETH</div>
-          </div>
-          <div class="day">
-            <div class="day-date">Fri 5 Sep</div>
-            <div class="day-who">delta-dao.eth</div>
-            <div class="day-amt">1.00 ETH</div>
-          </div>
-          <div class="day day--open">
-            <div class="day-date">Sat 6 Sep</div>
-            <div class="day-who">slot open</div>
-            <div class="day-amt">—</div>
-          </div>
-          <div class="day">
-            <div class="day-date">Sun 7 Sep</div>
-            <div class="day-who">echo.eth</div>
-            <div class="day-amt">0.75 ETH</div>
-          </div>
-        </div>
-        <div class="board-foot">
-          <span>sponsored this week <strong>3.00 ETH</strong> on top of the 5% royalty flow</span>
-          <span>2 of 7 days still open</span>
-        </div>
-      </section>
-
       <!-- Legend -->
       <div class="legend">
         <span class="key"><span class="swatch swatch--head"></span> headliner — one per layer, per release</span>
@@ -829,7 +824,7 @@
       <dd>
         <p>Today the vault is fed by the 5% royalty on every sale, and split among everyone who signs that day.
         From Cobalt on, anyone can also <strong>sponsor a day</strong> — top up a chosen day's vault directly, with
-        the day showing who funded it and for how much. The board under the map is that schedule.</p>
+        the day showing who funded it and for how much. The board above the map is that schedule.</p>
         <p>The numbers on the board today are sample data. No sponsor has signed up yet, and the slots are there to
         show the shape of the thing.</p>
       </dd>
