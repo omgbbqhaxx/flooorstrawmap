@@ -101,7 +101,7 @@
     /* ── Grid ── */
     .grid {
       display: grid;
-      grid-template-columns: 104px repeat(6, 232px) 264px 264px;
+      grid-template-columns: 104px repeat(6, 232px) 264px;
       column-gap: 12px;
       row-gap: 14px;
       align-items: stretch;
@@ -134,9 +134,6 @@
     .col-head.is-next .date { color: var(--gold); }
     .col-head.is-cap { border-bottom-color: var(--gold); }
     .col-head.is-cap .name { color: var(--gold); font-size: 1.25rem; }
-    .col-head.is-ns { background: #000; border-color: #000; border-bottom-color: #000; }
-    .col-head.is-ns .name { color: #fff; }
-    .col-head.is-ns .date { color: rgba(255, 255, 255, 0.55); }
 
     /* ── Month band — same treatment as the stage heads ── */
     .col-head.is-month { align-self: end; }
@@ -229,16 +226,20 @@
     }
 
     /* ── North stars ── */
-    .northstars {
-      grid-column: 8;
-      grid-row: 2 / span 3;
+    .row-label--n {
+      background: #111;
+      grid-column: 1;
+      grid-row: 5;
+    }
+    .nsband {
+      grid-column: 2 / span 6;
+      grid-row: 5;
       background: #111;
       padding: 12px;
       display: flex;
-      flex-direction: column;
       gap: 10px;
-      justify-content: space-between;
     }
+    .nsband .ns { flex: 1; }
     .ns {
       flex: 1;
       display: flex;
@@ -276,7 +277,7 @@
     .col-head.is-tasks .date { color: rgba(255, 255, 255, 0.5); }
 
     .tasks {
-      grid-column: 9;
+      grid-column: 8;
       grid-row: 2 / span 3;
       background: #1a1a1a;
       padding: 12px;
@@ -502,10 +503,6 @@
           <div class="name">$1T+</div>
           <div class="date">unlocks at market cap</div>
         </div>
-        <div class="col-head is-ns">
-          <div class="name">north stars</div>
-          <div class="date">no date &middot; in order</div>
-        </div>
         <div class="col-head is-tasks">
           <div class="name">tasks</div>
           <div class="date">open to anyone &middot; any time</div>
@@ -544,15 +541,6 @@
           <div class="box"><span class="t">PQ agent wallets</span><span class="n">the spend permission that signs for you, under the new scheme</span></div>
           <div class="box"><span class="t">rocket cargo</span><span class="n">a physical lot won at auction, off the pad and anywhere on Earth inside an hour</span></div>
           <div class="box box--off"><span class="tag">offchain</span><span class="t">crypto review</span><span class="n">the whole stack re-audited against a quantum adversary</span></div>
-        </div>
-
-        <!-- north stars, spanning the layer rows -->
-        <div class="northstars">
-          <div class="ns"><span class="step">1</span>Ethereum mainnet<small>the auction contract deployed on L1, next to the collections flooor wants — Base stays the cheap default</small></div>
-          <div class="ns"><span class="step">2</span>Nouns<small>a flooor for <a href="https://nouns.wtf" target="_blank">nouns.wtf</a>, running beside the DAO's own one-Noun-a-day auction</small></div>
-          <div class="ns"><span class="step">3</span>MAYC<small>the first Yuga-scale listing — a Mutant floor that prints daily instead of on every marketplace's whim</small></div>
-          <div class="ns"><span class="step">4</span>BAYC<small>10,000 Apes, the floor the whole market quotes, set once a day by an auction</small></div>
-          <div class="ns"><span class="step">5</span>CryptoPunks<small>the oldest floor onchain and the hardest to earn — the listing that proves the model</small></div>
         </div>
 
         <!-- tasks, spanning the layer rows -->
@@ -620,6 +608,19 @@
           <div class="box box--off"><span class="tag">offchain</span><span class="t">listing review queue</span><span class="n">spam and copymint filtering</span></div>
         </div>
 
+
+        <!-- ── north stars, a band under the timeline ── -->
+        <div class="row-label row-label--n">
+          <div class="letter">N</div>
+          <div class="what">north stars</div>
+        </div>
+        <div class="nsband">
+          <div class="ns"><span class="step">1</span>Ethereum mainnet<small>the auction contract deployed on L1, next to the collections flooor wants — Base stays the cheap default</small></div>
+          <div class="ns"><span class="step">2</span>Nouns<small>a flooor for <a href="https://nouns.wtf" target="_blank">nouns.wtf</a>, running beside the DAO's own one-Noun-a-day auction</small></div>
+          <div class="ns"><span class="step">3</span>MAYC<small>the first Yuga-scale listing — a Mutant floor that prints daily instead of on every marketplace's whim</small></div>
+          <div class="ns"><span class="step">4</span>BAYC<small>10,000 Apes, the floor the whole market quotes, set once a day by an auction</small></div>
+          <div class="ns"><span class="step">5</span>CryptoPunks<small>the oldest floor onchain and the hardest to earn — the listing that proves the model</small></div>
+        </div>
       </div>
 
       <!-- Legend -->
@@ -699,8 +700,8 @@
       <dt>What do the rows and colors represent?</dt>
       <dd>
         <p>Upgrades are grouped into two layers: listings (L) and surface (S). Dark boxes are headliners and
-        dashed boxes are offchain work. The two panels on the right stand outside the timeline: north stars, and
-        tasks.</p>
+        dashed boxes are offchain work. Two things sit outside the timeline: the north stars band (N) running
+        under the map, and the tasks panel on the right.</p>
         <p>Stages run left to right, and an arrow marks a box that builds on the one to its left. Anything to
         the right of Cobalt is scope, not schedule.</p>
       </dd>
