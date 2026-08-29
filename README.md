@@ -2,7 +2,7 @@
 
 A work-in-progress draft roadmap for the [flooor](https://flooor.fun) protocol on Base.
 
-**Next release — Cobalt, September 2026.** After that, releases carry placeholder names (D\*, E\*, F\*) until their scope firms up.
+**Stage 1 — Cobalt, September 2026.** Every stage after it unlocks at a protocol market cap — $5M, $10M, $100M — rather than on a date.
 
 ## Live site
 
@@ -19,7 +19,7 @@ A work-in-progress draft roadmap for the [flooor](https://flooor.fun) protocol o
 
 ## Editing the map
 
-The map is a CSS grid: one column per release, one row per layer (A auction, V vault, S surface).
+The map is a CSS grid: one column per stage (shipped, Cobalt, then the market-cap milestones), one row per layer (A auction, V vault, S surface).
 Each box is a `div.box`, with `--headliner` (dark), `--offchain` (dashed), or `--shipped` (faint) modifiers.
 North stars live in the `.northstars` block on the right. Bump the revision date in the legend and in the header meta after a change.
 

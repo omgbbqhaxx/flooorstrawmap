@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>flooor strawmap — draft protocol roadmap</title>
-  <meta name="description" content="A work-in-progress draft roadmap for the flooor protocol on Base. Cobalt ships September 2026; D*, E* and F* follow. Covering the auction, vault and surface layers.">
-  <meta name="keywords" content="flooor, flooor.fun, roadmap, strawmap, NFT auction, Base, royalties, sign and claim, vault, protocol roadmap">
+  <meta name="description" content="A work-in-progress draft roadmap for the flooor protocol on Base. Stage 1 is Cobalt in September 2026; the stages after it unlock at $5M, $10M and $100M market cap. Covering the auction, vault and surface layers.">
+  <meta name="keywords" content="flooor, flooor.fun, roadmap, strawmap, NFT auction, Base, royalties, sign and claim, vault, market cap milestones, protocol roadmap">
   <meta name="author" content="flooor">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="flooor strawmap — draft protocol roadmap">
-  <meta property="og:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then D*, E*, F*.">
+  <meta property="og:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then $5M, $10M and $100M market cap.">
   <meta property="og:url" content="https://omgbbqhaxx.github.io/flooorstrawmap/">
   <meta property="og:site_name" content="flooor strawmap">
   <meta property="og:image" content="https://omgbbqhaxx.github.io/flooorstrawmap/og-card.png">
@@ -21,7 +21,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="flooor strawmap — draft protocol roadmap">
-  <meta name="twitter:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then D*, E*, F*.">
+  <meta name="twitter:description" content="A strawman roadmap for the flooor protocol. Cobalt in September, then $5M, $10M and $100M market cap.">
   <meta name="twitter:image" content="https://omgbbqhaxx.github.io/flooorstrawmap/og-card.png">
 
   <!-- Favicon (SVG) -->
@@ -139,6 +139,8 @@
       border-bottom: 3px solid var(--hairline);
     }
     .col-head.is-past .name, .col-head.is-past .date { color: var(--faint); }
+    .col-head.is-cap { border-bottom-color: var(--gold); }
+    .col-head.is-cap .name { color: var(--gold); font-size: 1.25rem; }
     .col-head.is-ns { background: #000; border-color: #000; border-bottom-color: #000; }
     .col-head.is-ns .name { color: #fff; }
     .col-head.is-ns .date { color: rgba(255, 255, 255, 0.55); }
@@ -408,8 +410,8 @@
     </div>
     <div class="header-meta">
       <div>
-        <div class="label">next release — Cobalt, September 2026</div>
-        <div>draft rev. 2026-08-29 · <a href="https://vrnouns.gitbook.io/flooor" target="_blank">docs</a></div>
+        <div class="label">stage 1 — Cobalt, September 2026</div>
+        <div>then $5M · $10M · $100M market cap · <a href="https://vrnouns.gitbook.io/flooor" target="_blank">docs</a></div>
       </div>
     </div>
     <div style="flex-shrink:0">
@@ -430,19 +432,19 @@
         </div>
         <div class="col-head is-next">
           <div class="name">Cobalt</div>
-          <div class="date">September 2026</div>
+          <div class="date">stage 1 &middot; September 2026</div>
         </div>
-        <div class="col-head">
-          <div class="name">D&#42;</div>
-          <div class="date">Q1 2027</div>
+        <div class="col-head is-cap">
+          <div class="name">$5M</div>
+          <div class="date">unlocks at market cap</div>
         </div>
-        <div class="col-head">
-          <div class="name">E&#42;</div>
-          <div class="date">Q3 2027</div>
+        <div class="col-head is-cap">
+          <div class="name">$10M</div>
+          <div class="date">unlocks at market cap</div>
         </div>
-        <div class="col-head">
-          <div class="name">F&#42;</div>
-          <div class="date">2028</div>
+        <div class="col-head is-cap">
+          <div class="name">$100M</div>
+          <div class="date">unlocks at market cap</div>
         </div>
         <div class="col-head is-ns">
           <div class="name">north stars</div>
@@ -555,7 +557,7 @@
         <span class="key"><span class="swatch swatch--off"></span> offchain work</span>
         <span class="key"><span class="swatch swatch--ns"></span> north star</span>
         <span class="key"><span class="swatch swatch--arrow">→</span> builds on the box to its left</span>
-        <span class="rev">draft · rev. 2026-08-29 · dates are intent, not promises</span>
+        <span class="rev">draft · rev. 2026-08-29 · stages unlock at market cap, not on a date</span>
       </div>
     </div>
   </div>
@@ -579,7 +581,8 @@
       <a href="https://flooor.fun" target="_blank">flooor</a> protocol on Base.
     </p>
     <p style="font-size: 1rem; margin-bottom: var(--space-md);">
-      Cobalt lands in September. Everything after it is a sketch, not a promise.
+      Cobalt is stage 1 and lands in September. Everything after it unlocks at a market cap — $5M, $10M, $100M —
+      rather than on a date.
     </p>
 
     <h2 style="margin-top: var(--space-md); font-size: 1.5rem;">FAQ</h2>
@@ -601,7 +604,7 @@
 
       <dt>What is shipping next?</dt>
       <dd>
-        <p><strong>Cobalt, September 2026.</strong> Three headliners:</p>
+        <p><strong>Stage 1 — Cobalt, September 2026.</strong> Three headliners, one per layer:</p>
         <ul>
           <li><strong>parallel epochs</strong> — each listed collection runs its own auction clock rather than sharing one</li>
           <li><strong>weighted split</strong> — your share of the vault scales with the value you signed, not with headcount</li>
@@ -609,11 +612,13 @@
         </ul>
       </dd>
 
-      <dt>What do the letters on top represent?</dt>
+      <dt>What do the columns represent?</dt>
       <dd>
-        Releases are named on an incrementing first letter, mineral-style. Cobalt is the next one with a finalized
-        name. The releases after it — D&#42;, E&#42; and F&#42; — are placeholders (D&#42; is pronounced "D star") and will be
-        named as their scope firms up.
+        <p>Stages, not dates. The first column is what is live today. Cobalt is stage 1 and the only column with a
+        calendar date on it, because it is already being built.</p>
+        <p>Everything after Cobalt is gated on protocol market cap rather than a quarter: the $5M, $10M and $100M
+        columns unlock when flooor reaches that market cap. Each one is a bigger surface to pay for and a bigger
+        vault to defend, so the scope inside it is sized to what the protocol can carry at that point.</p>
       </dd>
 
       <dt>What do the rows and colors represent?</dt>
@@ -621,7 +626,8 @@
         <p>Upgrades are grouped into three layers: auction (A), vault (V), and surface (S). Dark boxes are
         headliners, dashed boxes are offchain work, faint boxes have already shipped, and the black boxes on the
         right are north stars — directions with no date attached.</p>
-        <p>Time runs left to right. Anything to the right of Cobalt is scope, not schedule.</p>
+        <p>Stages run left to right, and an arrow marks a box that builds on the one to its left. Anything to
+        the right of Cobalt is scope, not schedule.</p>
       </dd>
 
       <dt>What are headliners?</dt>
@@ -641,11 +647,13 @@
         </ul>
       </dd>
 
-      <dt>What is the time frame?</dt>
+      <dt>Why market cap instead of dates?</dt>
       <dd>
-        Roughly two releases a year through 2028. Cobalt has a date because it is built; D&#42;, E&#42; and F&#42; carry
-        quarters as an ordering hint. Treat them with healthy skepticism — a single dependency slipping moves
-        everything to its right.
+        <p>Because a date is a guess and a market cap is a fact. The work to the right of Cobalt only makes sense
+        with the holders, volume and vault that a larger protocol brings — permissionless listing needs collections
+        that want in, multi-chain needs a treasury that can carry more than one deployment.</p>
+        <p>So the columns are ordered but not scheduled. $5M could arrive before Cobalt ships, or long after.
+        The map says what happens at each level, not when the level arrives.</p>
       </dd>
 
       <dt>Why "strawmap"?</dt>
@@ -679,8 +687,8 @@
   <!-- Footer (mobile only) -->
   <footer class="site-footer">
     <div>
-      <div class="label">next release — Cobalt</div>
-      <div>September 2026 · draft rev. 2026-08-29</div>
+      <div class="label">stage 1 — Cobalt, September 2026</div>
+      <div>then $5M · $10M · $100M market cap</div>
     </div>
     <button class="toggle-btn" id="toggleBtnFooter">+ info</button>
   </footer>
