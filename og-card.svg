@@ -1,17 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#f7f5f1"/>
   <!-- layer bands -->
-  <rect x="0" y="0" width="1200" height="10" fill="#2f6fb0"/>
-  <rect x="0" y="610" width="400" height="20" fill="#2f6fb0"/>
-  <rect x="400" y="610" width="400" height="20" fill="#3d8c52"/>
-  <rect x="800" y="610" width="400" height="20" fill="#c08a2e"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#c08a2e"/>
+  <rect x="0" y="610" width="600" height="20" fill="#c08a2e"/>
+  <rect x="600" y="610" width="600" height="20" fill="#2f6fb0"/>
   <!-- flooor mark -->
-  <g transform="translate(560, 96) scale(0.5)">
-    <rect x="10" y="150" width="140" height="14" fill="#1a1a1a"/>
-    <rect x="26" y="112" width="108" height="14" fill="#c08a2e"/>
-    <rect x="42" y="74" width="76" height="14" fill="#3d8c52"/>
-    <rect x="58" y="36" width="44" height="14" fill="#2f6fb0"/>
-  </g>
+  <image href="logo.png" x="536" y="86" width="128" height="128"/>
   <text x="600" y="320" text-anchor="middle" font-family="'IBM Plex Mono', Menlo, monospace" font-size="52" fill="#1a1a1a" letter-spacing="-1">flooor strawmap</text>
   <text x="600" y="365" text-anchor="middle" font-family="'IBM Plex Mono', Menlo, monospace" font-size="22" fill="#75716a">a draft roadmap for the flooor protocol</text>
   <!-- release chips -->

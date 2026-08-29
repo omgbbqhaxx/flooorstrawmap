@@ -13,7 +13,7 @@ A work-in-progress draft roadmap for the [flooor](https://flooor.fun) protocol o
 - `index.html` — Full-screen map (pan + zoom) with the sidebar FAQ. The roadmap itself is plain HTML in the `.grid` block — edit boxes there.
 - `faq.html` — Standalone FAQ page
 - `shared.css` — Shared styles and design tokens
-- `flooor.svg` — flooor mark
+- `logo.png` — flooor mark, used for the header and the favicon
 - `og-card.png` / `og-card.svg` — Open Graph card assets
 - `.nojekyll` — tells GitHub Pages to serve the files as-is
 
