@@ -95,6 +95,7 @@
     /* ── Layer palettes ── */
     :root {
       --l-band:  #eaf2fb;  --l-line: #b7d1ec;  --l-ink: #1f4e79;  --l-chip: #2f6fb0;
+      --r-band:  #f6ffdb;  --r-line: #dcf39a;  --r-ink: #2c3d00;  --r-chip: #cdff04;
       --i-band:  #fdf0da;  --i-line: #efd7a6;  --i-ink: #8a5a12;  --i-chip: #c08a2e;
     }
 
@@ -157,6 +158,13 @@
       color: rgba(255, 255, 255, 0.8);
     }
     .row-label--l { background: var(--l-chip); }
+    .row-label--r {
+      background: var(--r-chip);
+      color: #1a1a1a;
+      grid-column: 1;
+      grid-row: 5;
+    }
+    .row-label--r .what { color: rgba(26, 26, 26, 0.68); }
     .row-label--i { background: var(--i-chip); }
 
     /* ── Cells ── */
@@ -168,6 +176,7 @@
       position: relative;
     }
     .cell--l { background: var(--l-band); }
+    .cell--r { background: var(--r-band); grid-row: 5; }
     .cell--i { background: var(--i-band); }
 
     /* ── Boxes ── */
@@ -181,6 +190,7 @@
       border-left: 4px solid var(--hairline);
     }
     .cell--l .box { border-color: var(--l-line); border-left-color: var(--l-chip); }
+    .cell--r .box { border-color: var(--r-line); border-left-color: var(--r-chip); }
     .cell--i .box { border-color: var(--i-line); border-left-color: var(--i-chip); }
 
     .box .t { display: block; font-weight: 500; }
@@ -203,6 +213,7 @@
       text-decoration-thickness: 1px;
     }
     .cell--l .box--head { background: var(--l-ink); border-color: var(--l-ink); border-left-color: #0f2f4d; }
+    .cell--r .box--head { background: var(--r-ink); border-color: var(--r-ink); border-left-color: var(--r-chip); }
     .cell--i .box--head { background: var(--i-ink); border-color: var(--i-ink); border-left-color: #56370a; }
     .box--head .n { color: rgba(255, 255, 255, 0.72); }
     .box--head .tag { color: var(--gold); }
@@ -236,11 +247,11 @@
     .row-label--n {
       background: #111;
       grid-column: 1;
-      grid-row: 5;
+      grid-row: 6;
     }
     .nsband {
       grid-column: 2 / span 6;
-      grid-row: 5;
+      grid-row: 6;
       background: #111;
       padding: 12px;
       display: flex;
@@ -278,11 +289,11 @@
     .row-label--t {
       background: #1a1a1a;
       grid-column: 1;
-      grid-row: 6;
+      grid-row: 7;
     }
     .tasksband {
       grid-column: 2 / span 6;
-      grid-row: 6;
+      grid-row: 7;
       background: #1a1a1a;
       padding: 12px;
       display: flex;
@@ -551,10 +562,10 @@
         <div class="corner"></div>
         <div class="corner"></div>
 
-        <!-- ── L — listings layer ── -->
+        <!-- ── B — base listings layer ── -->
         <div class="row-label row-label--l">
-          <div class="letter">L</div>
-          <div class="what">listings</div>
+          <div class="letter">B</div>
+          <div class="what">base listings</div>
         </div>
         <div class="cell cell--l">
           <div class="box box--head"><span class="tag">headliner</span><span class="t">parallel epochs</span><span class="n">every listed collection runs its own auction clock</span></div>
@@ -567,6 +578,15 @@
           <div class="box box--off"><span class="tag">offchain</span><span class="t">listing review queue</span><span class="n">spam and copymint filtering</span></div>
         </div>
 
+
+        <!-- ── R — robinhood layer ── -->
+        <div class="row-label row-label--r">
+          <div class="letter">R</div>
+          <div class="what">robinhood</div>
+        </div>
+        <div class="cell cell--r">
+          <div class="box box--head"><span class="tag">headliner</span><span class="t">robinhood tokenized stocks</span><span class="n">the equities behind a claim — AAPL, SPCX and the rest — sourced as Robinhood tokenized stock</span></div>
+        </div>
 
         <!-- ── north stars, a band under the timeline ── -->
         <div class="row-label row-label--n">
