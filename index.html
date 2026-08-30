@@ -145,6 +145,7 @@
 
     /* ── Month band — same treatment as the stage heads ── */
     .col-head.is-month { align-self: end; }
+    .col-head.is-month-r { grid-column: 2; grid-row: 5; }
 
     /* ── Row labels ── */
     .row-label {
@@ -169,7 +170,7 @@
       background: var(--r-chip);
       color: #1a1a1a;
       grid-column: 1;
-      grid-row: 5;
+      grid-row: 6;
     }
     .row-label--r .what { color: rgba(26, 26, 26, 0.68); }
     .row-label--i { background: var(--i-chip); }
@@ -183,7 +184,7 @@
       position: relative;
     }
     .cell--l { background: var(--l-band); }
-    .cell--r { background: var(--r-band); grid-row: 5; }
+    .cell--r { background: var(--r-band); grid-row: 6; }
     .cell--i { background: var(--i-band); }
 
     /* ── Boxes ── */
@@ -261,11 +262,11 @@
     .row-label--n {
       background: #111;
       grid-column: 1;
-      grid-row: 6;
+      grid-row: 7;
     }
     .nsband {
       grid-column: 2 / span 6;
-      grid-row: 6;
+      grid-row: 7;
       background: #111;
       padding: 12px;
       display: flex;
@@ -303,11 +304,11 @@
     .row-label--t {
       background: #1a1a1a;
       grid-column: 1;
-      grid-row: 7;
+      grid-row: 8;
     }
     .tasksband {
       grid-column: 2 / span 6;
-      grid-row: 7;
+      grid-row: 8;
       background: #1a1a1a;
       padding: 12px;
       display: flex;
@@ -571,10 +572,7 @@
           <div class="name">September 2026</div>
           <div class="date">earliest, if all goes right</div>
         </div>
-        <div class="col-head is-month">
-          <div class="name">November 2026</div>
-          <div class="date">earliest, if all goes right</div>
-        </div>
+        <div class="corner"></div>
         <div class="corner"></div>
         <div class="corner"></div>
         <div class="corner"></div>
@@ -596,6 +594,12 @@
           <div class="box box--off"><span class="tag">offchain</span><span class="t">listing review queue</span><span class="n">spam and copymint filtering</span></div>
         </div>
 
+
+        <!-- ── month head above the robinhood row ── -->
+        <div class="col-head is-month is-month-r">
+          <div class="name">September 2026</div>
+          <div class="date">earliest, if all goes right</div>
+        </div>
 
         <!-- ── R — robinhood layer ── -->
         <div class="row-label row-label--r">
