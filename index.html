@@ -133,6 +133,13 @@
     }
     .col-head.is-next .name { color: #fff; }
     .col-head.is-next .date { color: var(--gold); }
+    .col-head .floor {
+      margin-top: 4px;
+      padding-top: 4px;
+      border-top: 1px solid var(--hairline);
+      font-size: 0.6875rem;
+      color: var(--fg);
+    }
     .col-head.is-cap { border-bottom-color: var(--gold); }
     .col-head.is-cap .name { color: var(--gold); font-size: 1.25rem; }
 
@@ -507,22 +514,27 @@
         <div class="col-head is-cap">
           <div class="name">$5M</div>
           <div class="date">unlocks at market cap</div>
+          <div class="floor">flooor &asymp; $1K</div>
         </div>
         <div class="col-head is-cap">
           <div class="name">$10M</div>
           <div class="date">unlocks at market cap</div>
+          <div class="floor">flooor &asymp; $2K</div>
         </div>
         <div class="col-head is-cap">
           <div class="name">$100M</div>
           <div class="date">unlocks at market cap</div>
+          <div class="floor">flooor &asymp; $20K</div>
         </div>
         <div class="col-head is-cap">
           <div class="name">$1B+</div>
           <div class="date">unlocks at market cap</div>
+          <div class="floor">flooor &asymp; $200K</div>
         </div>
         <div class="col-head is-cap">
           <div class="name">$1T+</div>
           <div class="date">unlocks at market cap</div>
+          <div class="floor">flooor &asymp; $200M</div>
         </div>
 
         <!-- ── I — improvements layer ── -->
@@ -693,7 +705,8 @@
         right. Only the near ones carry a month — past those, a date would be invention rather than information.
         It is a reading aid either way: the market cap is still what opens the column.</p>
         <p>Everything after Cobalt is gated on protocol market cap rather than a quarter: the $5M, $10M, $100M, $1B+ and $1T+
-        columns unlock when flooor reaches that market cap. Each one is a bigger surface to pay for and a bigger
+        columns unlock when flooor reaches that market cap. The figure under each one is what a single flooor is
+        worth at that level — $1M of market cap is a $200 flooor, and it scales from there. Each one is a bigger surface to pay for and a bigger
         vault to defend, so the scope inside it is sized to what the protocol can carry at that point.</p>
       </dd>
 
